@@ -1,0 +1,120 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap");
+
+@font-face {
+  font-family: EuclidFlex;
+  src: url(/assets/fonts/EuclidFlex-Regular.otf);
+}
+@font-face {
+  font-family: EuclidFlex;
+  src: url(/assets/fonts/EuclidFlex-Bold.otf);
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: EuclidFlex;
+  src: url(/assets/fonts/EuclidFlex-Italic.otf);
+  font-style: italic;
+}
+
+:root {
+  --jumbotron-padding-y: 1rem;
+  font-family: "Open Sans";
+}
+
+.jumbotron {
+  padding-top: var(--jumbotron-padding-y);
+  padding-bottom: var(--jumbotron-padding-y);
+  margin-bottom: 0;
+  background-color: #fff;
+  font-size: 3rem;
+  font-family:  "Open Sans";
+}
+@media (min-width: 768px) {
+  .jumbotron {
+    padding-top: calc(var(--jumbotron-padding-y) * 2);
+    padding-bottom: calc(var(--jumbotron-padding-y) * 2);
+  }
+}
+
+.jumbotron p:last-child {
+  margin-bottom: 0;
+}
+
+.jumbotron-heading {
+  font-weight: 800;
+}
+
+.jumbotron .container {
+  max-width: 50rem;
+}
+
+.chapter {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  max-width: 100%;
+  margin: 20px;
+  overflow: hidden;
+  width: 90%;
+}
+
+.chapter h6 {
+  opacity: 0.6;
+  margin: 0;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 1rem;
+}
+
+.chapter h2 {
+  letter-spacing: 1px;
+  margin: 10px 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.chapter-preview {
+  background-color: #D6121E;
+  color: #fff;
+  padding: 30px;
+  width: 40%;
+}
+
+.chapter-preview a {
+  color: #fff;
+  display: inline-block;
+  font-size: 0.5rem;
+  opacity: 0.6;
+  margin-top: 30px;
+  text-decoration: none;
+}
+
+.chapter-info {
+  padding: 30px;
+  position: relative;
+  width: 60%;
+}
+
+.chapter-info .btn {
+  background-color: #D6121E;
+  border: 0;
+  border-radius: 50px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  font-size: 16px;
+  padding: 12px 25px;
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  letter-spacing: 1px;
+}
+
+footer {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+footer p {
+  margin-bottom: .25rem;
+}
