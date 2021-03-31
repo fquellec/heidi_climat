@@ -32,6 +32,11 @@
     <!-- Slider for melting glaciers comparison -->
     <link rel="stylesheet" href="https://unpkg.com/beerslider/dist/BeerSlider.css">
 
+    <!-- Transition bewteen pages -->
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/keyframes.css">
+    <link rel="stylesheet" href="./css/pageTransitions.css">
+
   </head>
 
   <body>
@@ -62,8 +67,9 @@
       </header>
     </div>
 
-    <main role="main">
-        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <main role="main" id="main" class="m-scene">
+      <div id="main" class="main-scene">
+        <div id="myCarousel" class="carousel slide scene_element scene_element--fadeinright" data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
           <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -125,7 +131,7 @@
       ================================================== -->
       <!-- Wrap the rest of the page in another container to center all the content. -->
 
-      <div class="container marketing">
+      <div class="container marketing scene_element scene_element--fadeinup">
 
         <!-- START THE FEATURETTES -->
         <div class="row featurette">
@@ -190,17 +196,19 @@
         <!-- /END THE FEATURETTES -->
 
       </div><!-- /.container -->
+      </div>
+        
 
        <footer class="">
       <div class="container">
         <div class="row justify-content-center">
-          <div class="col-md-1">
-            <p><a class="" href="#"><i class="fas fa-angle-left " disable></i></a></p> 
+          <div class="col-1">
+            <p><a class="disabled-link" href="#"><i class="fas fa-angle-left " disable></i></a></p> 
           </div>
-          <div class="col-md-10 align">
+          <div class="col-10 align">
             <p>1. Ça se dérègle</p>
           </div>
-          <div class="col-md-1">
+          <div class="col-1">
             <p><a class="" href="faute.html"><i class="fas fa-angle-right"></i></a></p> 
           </div>
         </div>
@@ -218,5 +226,9 @@
     <script>
       new BeerSlider(document.getElementById('slider'));
     </script>
+
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+    <script src="./js/jquery.smoothState.min.js"></script>
+    <script src="./js/main.js"></script>
   </body>
 </html>
