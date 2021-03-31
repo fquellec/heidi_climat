@@ -82,6 +82,7 @@ footer {
   line-height: 46px; /* Vertically center the text there */
   background-color: black;
   text-align: center;
+  z-index: 2;
 }
 
 
