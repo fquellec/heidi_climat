@@ -34,7 +34,8 @@
 
     <!-- Transition bewteen pages -->
     <link rel="stylesheet" href="./css/normalize.css">
-    <link rel="stylesheet" href="./css/keyframes.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="./css/pageTransitions.css">
 
   </head>
@@ -134,14 +135,12 @@
 
         <!-- START THE FEATURETTES -->
         <div class="row featurette">
-          <div class="col-md-6">
+          <div class="col-md-5">
             <h2 class="featurette-heading">Émissions de GES</h2>
             <p class="lead">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
           </div>
-          <div class="col-md-6">
-            <div class="iframe-loader">
-              <iframe title="covid resume" src="https://embed.newsteller.io/e64bcb3f4c68" width="100%" height="500px" frameborder="0"> </iframe>
-            </div>
+          <div class="col-md-7">
+            <div id="map"></div>
           </div>
         </div>
 
@@ -199,14 +198,14 @@
        <footer class="">
       <div class="container">
         <div class="row justify-content-center">
-          <div class="col-md-1">
-            <p><a class="" href="dereglement.html"><i class="fas fa-angle-left " disable></i></a></p> 
+          <div class="col-1">
+            <p><a class="" href="dereglement.html" id="left"><i class="fas fa-angle-left " disable></i></a></p> 
           </div>
-          <div class="col-md-10 align">
+          <div class="col-10 align">
             <p>2. C'est de notre faute</p>
           </div>
-          <div class="col-md-1">
-            <p><a class="" href="#"><i class="fas fa-angle-right"></i></a></p> 
+          <div class="col-1">
+            <p><a class="" href="#" id="right"><i class="fas fa-angle-right"></i></a></p> 
           </div>
         </div>
       </div>
@@ -227,5 +226,29 @@
     <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
     <script src="./js/jquery.smoothState.min.js"></script>
     <script src="./js/main.js"></script>
+
+        <script type="text/javascript">
+      document.onkeydown = function (e) {
+        var keyCode = e.keyCode;
+
+        if(keyCode == 37) {
+            document.getElementById("left").click();
+        }
+        if(keyCode == 39) {
+            document.getElementById("right").click();
+        }
+      };
+    </script>
+
+    <!-- Import d3js -->
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+
+     <!-- Import D3 js modules -->
+    <script src="https://d3js.org/d3-array.v2.min.js"></script>
+    <script src="https://d3js.org/d3-geo.v2.min.js"></script>
+    <script src="https://d3js.org/d3-color.v2.min.js"></script>  
+
+    <script src="./js/map_ges.js"></script>
+
   </body>
 </html>

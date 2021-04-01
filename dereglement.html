@@ -34,7 +34,7 @@
 
     <!-- Transition bewteen pages -->
     <link rel="stylesheet" href="./css/normalize.css">
-    <link rel="stylesheet" href="./css/keyframes.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="./css/pageTransitions.css">
 
   </head>
@@ -203,13 +203,13 @@
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-1">
-            <p><a class="disabled-link" href="#"><i class="fas fa-angle-left " disable></i></a></p> 
+            <p><a class="disabled-link" href="#" id="left"><i class="fas fa-angle-left " disable></i></a></p> 
           </div>
           <div class="col-10 align">
             <p>1. Ça se dérègle</p>
           </div>
           <div class="col-1">
-            <p><a class="" href="faute.html"><i class="fas fa-angle-right"></i></a></p> 
+            <p><a class="" href="faute.html" id="right"><i class="fas fa-angle-right"></i></a></p> 
           </div>
         </div>
       </div>
@@ -230,5 +230,18 @@
     <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
     <script src="./js/jquery.smoothState.min.js"></script>
     <script src="./js/main.js"></script>
+  
+    <script type="text/javascript">
+      document.onkeydown = function (e) {
+        var keyCode = e.keyCode;
+
+        if(keyCode == 37) {
+            document.getElementById("left").click();
+        }
+        if(keyCode == 39) {
+            document.getElementById("right").click();
+        }
+      };
+    </script>
   </body>
 </html>
