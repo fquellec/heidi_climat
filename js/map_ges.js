@@ -29,7 +29,7 @@ const map  = svg
                 .attr('pointer-events', 'all');
 
 // create a tooltip
-const tooltip = d3.select("#map")
+const tooltip = d3.select("body")
   .append("div")
     .style("opacity", 0)
     .attr("class", "tooltip")
@@ -122,10 +122,10 @@ function initialize(error, data){
           const mapWidth = svg.node().getBoundingClientRect().width 
           const mapHeight = svg.node().getBoundingClientRect().height 
           
-          var leftPos = d3.mouse(this)[0]
-          var topPos = d3.mouse(this)[1]
-          //var leftPos = event.pageX
-          //var topPos = event.pageY
+          //var leftPos = d3.mouse(this)[0]
+          //var topPos = d3.mouse(this)[1]
+          var leftPos = event.pageX
+          var topPos = event.pageY
           console.log(leftPos, topPos, tooltipWidth, tooltipHeight, mapWidth/2, mapHeight/2)
 
   
