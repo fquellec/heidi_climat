@@ -135,8 +135,11 @@
 							<p class="lead">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
 						</div>
 						<div class="col-md-6">
-							<div class="iframe-loader">
-								<iframe title="covid resume" src="" width="100%" height="500px" frameborder="0"> </iframe>
+							<div id="map-container">
+								<div id="map">
+									<button id="play-button"><i class="fas fa-play"></i></button>	
+								</div>
+								<div id="heatmap"></div>
 							</div>
 						</div>
 					</div>
@@ -224,5 +227,18 @@
 		
 		<!-- main script -->
 		<script src="./js/main.js"></script>
+		
+		<!-- Import D3 js modules -->
+		<script src="https://d3js.org/d3.v4.min.js"></script>
+		
+		<script src="https://d3js.org/d3-array.v2.min.js"></script>
+		<script src="https://d3js.org/d3-geo.v2.min.js"></script>
+		<script src="https://d3js.org/d3-color.v2.min.js"></script> 
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.js" integrity="sha512-5mCB0Kvv97yTzqo0174qxPjMisck/WlK51+mw/RV7UfYbtHI8LuLR82BzZuxHUKSfbh75u9cZHgUcqrZDaBJuA==" crossorigin="anonymous"></script>
+		
+		<script src="./lib/simpleHeat/simpleheat.js"></script>
+		<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+		<script src="./js/map_heatwaves.js"></script>
+
 	</body>
 </html>
