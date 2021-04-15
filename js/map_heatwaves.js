@@ -108,7 +108,7 @@ var domain = [0, 10, 20, 30, 40];
 var max_value = domain[domain.length - 1];
 var myColor = d3.scaleLinear()
 				.domain(domain)
-				.range(["white", "#8b9dc3", "yellow", "#ff8100", "red"]);
+				.range(["#e8ecf1", "#8b9dc3", "#f5e653", "#ff8100", "#f03434"]);
 
 var grad = {0: myColor(0), 
 			0.25: myColor(0.25*max_value), 
@@ -148,7 +148,7 @@ function initializeHeatMap(error, data){
 	var displayHeat = function(data){
 		var heat = simpleheat(canvas);
 		heat.data(data.map(d => { return [d.coords[0], d.coords[1], +d.values]}));
-		heat.radius(1, 2);
+		heat.radius(1, 1);
 		heat.max(max_value);
 		heat.gradient(grad);
 		heat.draw(0.05);
