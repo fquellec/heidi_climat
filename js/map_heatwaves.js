@@ -18,7 +18,7 @@ const config = {
 
 
 // Create the SVG containing our map
-const svg = d3.select("#map")
+var svg = d3.select("#map")
 	.append('svg')
 	.attr("preserveAspectRatio", "xMinYMin meet")
 	.attr("viewBox", "0 0 " + config.width + " " + config.height);
