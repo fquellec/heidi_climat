@@ -25,21 +25,25 @@ function CircularWorldCalendar(data, config){
 	}
 
 	function addArch(arc, className, classNameAsId) {
-	  const visible = !className || className.split(' ')[1] == 'day'
+	  const visible = !className || className.split('_')[0] == "day"
 	  const g = svg_c.append('g');
 	  const path = g.append('path')
 		.attr('class', className)
 		.attr('d', arc)
-		.style('fill', className ? "#67809f" : "#d64541")
+		.style('fill', "#67809f")
 		.style("stroke", visible ? "#F9F9F9":"transparent")
 		.style("stroke-width", "2px")
 		.style("stroke-opacity", "1")
 		.attr("transform", "translate(" + config.width / 2 + "," + config.height / 2 + ")")
 		.on("mouseover", function(d) {
-		  d3.select(this).style('opacity', 0.3);
+		  if (className){
+		  	d3.select(this).style('stroke', "transparent");// TODO higlight country
+		  }
 		})
 		.on("mouseleave", function(d) {
-		  d3.select(this).style('opacity', 1);
+			if (className){
+		  		d3.select(this).style('stroke', "#F9F9F9");
+			}
 		});
 
 	  if (classNameAsId) {
@@ -73,9 +77,10 @@ function CircularWorldCalendar(data, config){
 	];
 	
 	// Create svg
+	d3.select("#CircularCalendar").style("position", "relative")
 	var svg_c = d3.select("#CircularCalendar").append("svg")
 	  .attr("viewBox", '0 0 ' + config.width + ' ' + config.height);
-
+	
 	// Create centered circle (world)
 	svg_c.append("circle")
 		.attr('cx', config.width/2 )
@@ -110,11 +115,12 @@ function CircularWorldCalendar(data, config){
 
 	  days[i-1] = { 
 		  data: i, 
-		  className: `${dayClassName} day`  ,
+		  className: `${dayClassName} day ${i}`  ,
 		}; 
 	}
-
-	days.forEach((d) => drawArc(d.data, d.data+1, 30, 50, d.className));
+	
+	
+	days.forEach((d) => drawArc(d.data, d.data+1, 30, 50, ""));//d.className
 	months.forEach((d) => drawArc(
 	  d.start + (d.className === 'january' ? -1 : 0), 
 	  d.end + (d.className === 'december' ? 1 : 0),
@@ -123,17 +129,24 @@ function CircularWorldCalendar(data, config){
 	  `${d.className} month`, 
 		true));
 
+	// Map values to country id
+  	var dataByIso = {};
+	var dataByDate = {};
+	
 	data.forEach((d) => {
-	  const startDate = new Date(d.date);
-	  const endDate = new Date(startDate.getTime());
-	  endDate.setDate(startDate.getDate() + 1);
-
-	  drawArc(
+		const startDate = new Date(d.date);
+		const endDate = new Date(startDate.getTime());
+		endDate.setDate(startDate.getDate() + 1);
+	  
+		const className = "day_" + (startDate.getMonth() + 1).toString() + "_" + startDate.getDate();
+		dataByIso[d.iso] = {"country": d.country, "value": +d.value, "date":className, "angleR": DegToRadians(doyToDegrees(startDate.getDOY()))};
+	    dataByDate[d.date] = {"country": d.country, "value": +d.value, "iso":d.iso};
+		drawArc(
 			startDate.getDOY(),
-		endDate.getDOY(),
-		30,
-		51 + (d.special ? 4 : 0),
-		d.project
+			endDate.getDOY(),
+			30,
+			50,//+ (d.special ? 4 : 0),
+			className,
 		)});
 
 	svg_c.append('text')
@@ -148,23 +161,23 @@ function CircularWorldCalendar(data, config){
 
 
 	// create a tooltip
-	const tooltip = d3.select("body")
+	const tooltip = d3.select("#CircularCalendar")
 	  .append("div")
 		.style("opacity", 0)
 		.attr("class", "tooltip")
 		.style("font-family", "Open Sans")
 		.style("font-size", "0.7rem")
-		.style("background-color", "white")
-		.style("border", "solid white")
-		.style("border-width", "2px")
-		.style("border-radius", "5px")
+		.style("background-color", "#F9F9F9")
+		.style("border-top", "solid #FFCE03")
+		.style("border-top-width", "2px")
+		//.style("border-radius", "5px")
 		.style("padding", "5px")
 		.style("position", "absolute")
 		.style("width", config.tooltip_width)
 		.style("pointer-events", "none")
-		.style("webkit-box-shadow", "0px 0px 10px grey")
-		.style("moz-box-shadow",  "0px 0px 10px grey")
-		.style("box-shadow", "0px 0px 10px grey");
+		//.style("webkit-box-shadow", "0px 0px 10px grey")
+		//.style("moz-box-shadow",  "0px 0px 10px grey")
+		//.style("box-shadow", "0px 0px 10px grey");
 
 	d3.queue()
 		.defer(d3.csv, 'assets/API_EN.ATM.GHGT.KT.CE_DS2_fr_csv_v2_2168730.csv', function (d) {
@@ -202,7 +215,11 @@ function CircularWorldCalendar(data, config){
 		.exponent(0.5)
 		.domain([minValue, maxValue])
 		.range(["#FFCE03", "#F00505"]);
-
+	  function polarToCartesian(r , theta){
+		  const x = r * Math.cos(theta);
+		  const y = r * Math.sin(theta);
+		  return [x, y];
+	  }
 	  // Draw the map
 	  const countryPaths = svg_c
 		.selectAll(".country")
@@ -225,12 +242,51 @@ function CircularWorldCalendar(data, config){
 			.style("stroke-opacity", "1")
 	  		.attr("transform", "translate(" + config.width / 4 + "," + config.height / 4 + ")")
 			.on("mouseover", function(d){
+				
+				if (dataByIso[d.properties.ISO_A3]){
+					d3.select(this.parentNode.appendChild(this)).style('stroke', "black");
+					d3.selectAll("." + dataByIso[d.properties.ISO_A3]['date']).style('fill', "#FFCE03");
+					//string = d3.select("." + dataByIso[d.properties.ISO_A3]['date']).attr("transform");
+					//transform = string.substring(string.indexOf("(")+1, string.indexOf(")")).split(",")
+					
+					//var that = d3.select("." + dataByIso[d.properties.ISO_A3]['date']);
+					//d3.select(that.parentNode.appendChild(that)).style("fill", "black");
+					
+					var textToDisplay = "<b>" + valuesById[d.properties.ISO_A3]['name'] + "</b><br><br>" 
+								  + "<b>Émissions totales de GES : </b>" + valuesById[d.properties.ISO_A3]['values'] + " kT d’équivalent CO2<br>";
+					
+					const coordinates = polarToCartesian(svg_c.node().getBoundingClientRect().width/4 + 45, dataByIso[d.properties.ISO_A3]['angleR'])
+					const svg_width = svg_c.node().getBoundingClientRect().width;
+					const svg_height = svg_c.node().getBoundingClientRect().height; 
+					const tooltipWidth = tooltip.node().getBoundingClientRect().width;
+					var left = coordinates[0] + svg_width/2;
+					var top = coordinates[1] + svg_height/2;
+					
+					if (left < svg_width/2){
+						left = left - tooltipWidth - 2;
+						left = 0;
+					} else {
+						left = svg_width - tooltipWidth - 2
+					}
+					
+					
+					
+					tooltip
+						.html(textToDisplay)
+						.style("left", left + "px")
+						.style("top", top + "px");	
+					tooltip.style("opacity", 1);
+				}
+			  
+			  /*
 			  if (valuesById[d.properties.ISO_A3]){
 				tooltip.style("opacity", 1)
-				d3.select(this.parentNode.appendChild(this)).style('stroke', "black");
+				
 			  }
+			  */
 			})
 			.on("mousemove", function(d){
+				/*
 			  const tooltipWidth = tooltip.node().getBoundingClientRect().width 
 			  const tooltipHeight =  tooltip.node().getBoundingClientRect().height 
 			  const mapWidth = svg_c.node().getBoundingClientRect().width 
@@ -258,34 +314,42 @@ function CircularWorldCalendar(data, config){
 				.html(textToDisplay)
 				.style("left", leftPos + "px")
 				.style("top", topPos + "px")
+			*/
 			})
 			.on("mouseleave", function(d){
+				if (dataByIso[d.properties.ISO_A3]){
+					d3.select(this).style('stroke', 'white');
+					d3.selectAll("." + dataByIso[d.properties.ISO_A3]['date']).style('fill', "#67809f");
+					tooltip.style("opacity", 0);
+				}
+				/*
 			  if (valuesById[d.properties.ISO_A3]){
 				tooltip.style("opacity", 0);
 				d3.select(this).style('stroke', 'white');
 			  }
+			  */
 			})
 
 	}
 }
 
 CircularWorldCalendar([
-	  { date: new Date().toString(), country: 'Suisse', value: 6, special: true},
-	  { date: '2021-04-21', country: 'France', value: 5},
-	  { date: '2021-05-01', country: 'Etats-Unis', value: 4},
-	  { date: '2021-06-01', country: 'Belgique', value: 3},
-	  { date: '2021-08-01', country: 'Chine', value: 0.9},
-	  { date: '2021-05-01', country: 'Maroc', value: 1.2},
-	  { date: '2021-05-31', country: 'Italie', value: 3.5},
-	  { date: '2021-07-01', country: 'Espagne', value: 2},
-	  { date: '2021-06-01', country: 'Grande-Bretagne', value: 1.5},
+	  { date: new Date().toString(), country: 'Suisse', iso: 'CHE', value: 6, special: true},
+	  { date: '2021-01-21', country: 'France', iso:'FRA', value: 5},
+	  { date: '2021-03-01', country: 'Etats-Unis', iso:'USA', value: 4},
+	  { date: '2021-06-01', country: 'Belgique', iso:'BEL', value: 3},
+	  { date: '2021-08-01', country: 'Chine', iso:'CHN', value: 0.9},
+	  { date: '2021-10-01', country: 'Maroc', iso:'MAR', value: 1.2},
+	  { date: '2021-02-31', country: 'Italie', iso:'ITA', value: 3.5},
+	  { date: '2021-12-01', country: 'Espagne', iso:'ESP', value: 2},
+	  { date: '2021-11-01', country: 'Grande-Bretagne', iso:'GBR', value: 1.5},
 	],
 	{
 		width				: 800,
 		height				: 800,
 		arcPosition 		: 200,
 		borderColor         : ["white", "grey"],
-		tooltip_width       : "150px",
+		tooltip_width       : "100px",
 	}
 
 )
