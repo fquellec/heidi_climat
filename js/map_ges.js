@@ -99,7 +99,7 @@ function initialize(error, data){
         //.filter(function(d) { return d.properties.ISO_A3 != 'CHE' })
         .attr('class', 'country')
         .attr("fill", function (d) {
-            if (valuesById[d.properties.ISO_A3]) {
+            if (valuesById[d.properties.ISO_A3] && valuesById[d.properties.ISO_A3]['values'] != 0) {
               return color(valuesById[d.properties.ISO_A3]['values'])
             } else {
               return "#F2F2F2"
@@ -111,7 +111,7 @@ function initialize(error, data){
         .style("stroke-width", "0.5px")
         .style("stroke-opacity", "1")
         .on("mouseover", function(d){
-          if (valuesById[d.properties.ISO_A3]){
+          if (valuesById[d.properties.ISO_A3] && valuesById[d.properties.ISO_A3]['values'] != 0){
             tooltip.style("opacity", 1)
             d3.select(this.parentNode.appendChild(this)).style('stroke', "black");
           }
@@ -142,7 +142,7 @@ function initialize(error, data){
           }
         
           var textToDisplay = "<b>" + valuesById[d.properties.ISO_A3]['name'] + "</b><br><br>" 
-                              + "<b>Émissions totales de GES : </b>" + valuesById[d.properties.ISO_A3]['values'] + " kT d’équivalent CO2<br>";
+                              + "<b>Émissions totales de GES : </b>" + Math.round(valuesById[d.properties.ISO_A3]['values'] * 100) / 100 + " kT d’équivalent CO2<br>";
 
           tooltip
             .html(textToDisplay)
@@ -150,7 +150,7 @@ function initialize(error, data){
             .style("top", topPos + "px")
         })
         .on("mouseleave", function(d){
-          if (valuesById[d.properties.ISO_A3]){
+          if (valuesById[d.properties.ISO_A3] && valuesById[d.properties.ISO_A3]['values'] != 0){
             tooltip.style("opacity", 0);
             d3.select(this).style('stroke', 'white');
           }
