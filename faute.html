@@ -140,9 +140,26 @@
 						<p class="lead">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas.</p>
 					</div>
 					<div class="col-md-7">
-						<div id="map"></div>
+						<div class="tabset">
+							<!-- Tab 1 -->
+							<input type="radio" name="tabset" id="tab1" aria-controls="global" checked>
+							<label for="tab1">Émissions Globales</label>
+							<!-- Tab 2 -->
+							<input type="radio" name="tabset" id="tab2" aria-controls="per_capita">
+							<label for="tab2">Émissions par habitants</label>
+
+							<div class="tab-panels">
+								<section id="global" class="tab-panel">
+									<div id="map_global"></div>
+								 </section>
+								 <section id="per_capita" class="tab-panel">
+								 	<div id="map_per_capita"></div>
+								 </section>
+							</div>
+						</div>
+						
 						<div class="sourceRef">
-							Source: <a href="https://data.worldbank.org/indicator/EN.ATM.GHGT.KT.CE?view=map">PBL & EDGAR</a>
+							Source: <a href="https://www.climatewatchdata.org/data-explorer/historical-emissions">ClimateWatch & UN 2018</a>
 						</div>
 						
 					</div>
@@ -152,7 +169,7 @@
 
 				<div class="row featurette">
 					<div class="col-md-5 order-md-2">
-						<h2 class="featurette-heading">Empreinte carbone.</h2>
+						<h2 class="featurette-heading">Empreinte carbone</h2>
 						<p class="lead">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem.</p>
 					</div>
 					<div class="col-md-7 order-md-1">
@@ -186,7 +203,7 @@
 
 				<div class="row featurette">
 					<div class="col-md-6 order-md-2">
-						<h2 class="featurette-heading">La Déforestation.</h2>
+						<h2 class="featurette-heading">La déforestation</h2>
 						<p class="lead">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem.</p>
 					</div>
 					<div class="col-md-6">
@@ -247,6 +264,8 @@
 		<script src="https://d3js.org/d3-array.v2.min.js"></script>
 		<script src="https://d3js.org/d3-geo.v2.min.js"></script>
 		<script src="https://d3js.org/d3-color.v2.min.js"></script>  
+		
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.js" integrity="sha512-5mCB0Kvv97yTzqo0174qxPjMisck/WlK51+mw/RV7UfYbtHI8LuLR82BzZuxHUKSfbh75u9cZHgUcqrZDaBJuA==" crossorigin="anonymous"></script>
 
 		<script src="./js/map_ges.js"></script>
 
