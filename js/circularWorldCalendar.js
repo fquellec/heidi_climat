@@ -5,7 +5,7 @@ const dflt = {
 	'mapColorRange' 		: ['#FFCE03', '#F00505'],
 	'borderColor'			: ["white", "grey"],
 	'arcsColor' 			: '#67809f',
-	'arcsHighlightColor' 	: '#FFCE03',
+	'arcsHighlightColor' 	: '#D6121E',//'#FFCE03',
 	'backgroundColor'		: '#F9F9F9'
 }
 
@@ -32,7 +32,7 @@ function CircularWorldCalendar(config){
 	  .attr('viewBox', '0 0 ' + width + ' ' + height);
 	
 	// Create centered circle (world)
-	svg.append('circle')
+	var circle = svg.append('circle')
 		.attr('cx', width/2 )
 		.attr('cy', width/2 )
 		.attr('r', width/4 )
@@ -158,14 +158,16 @@ function CircularWorldCalendar(config){
 		// Define color scale
 		const minValue = d3.min(values, function(d) { return +d.value; });
 		const maxValue = d3.max(values, function(d) { return +d.value; });
-
+		
 		const color = d3.scalePow()
 			.exponent(0.5)
 			.domain([minValue, maxValue])
 			.range(mapColorRange);
 		
 		// Draw the map
-		const countryPaths = svg
+		const g = svg.append('g');
+		
+		const countryPaths = g
 			.selectAll('.country')
 			  .data(geojson.features)
 			  .enter()
@@ -188,7 +190,10 @@ function CircularWorldCalendar(config){
 				
 					if (valuesByIso[d.properties.ISO_A3] && valuesByIso[d.properties.ISO_A3]['date']){
 						d3.select(this.parentNode.appendChild(this)).style('stroke', "black");
-						d3.selectAll("." + valuesByIso[d.properties.ISO_A3]['className']).style('fill', arcsHighlightColor);
+						d3.selectAll("." + valuesByIso[d.properties.ISO_A3]['className'])
+							.style('fill', arcsHighlightColor)
+							//.style('stroke', arcsHighlightColor)
+							.style("stroke-width", "0.5px");
 						
 						var textToDisplay = "<b>" + valuesByIso[d.properties.ISO_A3]['name'] + "</b><br>" 
 								  + formatTime(valuesByIso[d.properties.ISO_A3]['date']) + "<br>"
@@ -218,10 +223,30 @@ function CircularWorldCalendar(config){
 				.on("mouseleave", function(d){
 					if (valuesByIso[d.properties.ISO_A3]){
 						d3.select(this).style('stroke', 'white');
-						d3.selectAll("." + valuesByIso[d.properties.ISO_A3]['className']).style('fill', arcsColor);
+						d3.selectAll("." + valuesByIso[d.properties.ISO_A3]['className']).style('fill', arcsColor)
+							.style('stroke', 'white')
+							.style("stroke-width", "2px");
 						tooltip.style("opacity", 0);
 					}
 				})
+		
+		// initiate zoom
+		/*
+		const zoom = d3.zoom()
+		  .scaleExtent([1, 8])
+		  .on('zoom', zoomed);
+
+		g.call(zoom);
+
+		function zoomed() {
+		  g
+			.selectAll('path') // To prevent stroke width from scaling
+			//.attr("transform", "translate(" + width / 4 + "," + height / 4 + ")")
+			.attr('transform', d3.event.transform)
+			
+		}
+		
+		*/
 
 	}
 
