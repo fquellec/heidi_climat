@@ -314,4 +314,11 @@ footer {
 	background-color: transparent;
 	color: #2c3e50;
 	border: none;
+	padding: 0.2rem 0.2rem;
+	margin: 0.1rem 0.1rem;
+}
+
+/* remove bootstrap outline */
+button:focus{
+	outline: none;
 }

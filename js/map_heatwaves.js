@@ -166,6 +166,7 @@ function initializeHeatMap(error, data){
 	var moving = false;
 	var current_index = 0;
 	var next_index = 1;
+	var timer = null;
 	
 	playButton
 		.on("click", function() {
