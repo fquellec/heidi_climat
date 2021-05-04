@@ -218,23 +218,6 @@ footer {
   right:0
 }
 
- #play-button {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  z-index: 12;
-  background: #f08080;
-  padding-right: 26px;
-  border-radius: 3px;
-  border: none;
-  color: white;
-  margin: 0;
-  padding: 0 12px;
-  width: 60px;
-  cursor: pointer;
-  height: 30px;
-}
-
 /*/////// TABS ///////////*/
 .tabset > input[type="radio"] {
   position: absolute;
@@ -297,4 +280,38 @@ footer {
 .tab-panel {
   padding: 30px 0;
   border-top: 1px solid #ccc;
+}
+
+/*/////// SLider MAp ///////////*/
+
+.slider-btn{
+    margin: 0 auto;
+	background-color: transparent;
+    border: 2px solid #2c3e50;
+	color: #2c3e50;
+    border-radius: 10%;
+    padding: 0.2rem 0.2rem;
+    text-align: center;
+    /* text-decoration: none; */
+    display: inline-block;
+    font-size: 0.70rem;
+    margin: 0.1rem 0.1rem;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.slider-btn:hover {
+  background-color: #2c3e50;
+  color: white;
+}
+
+.slider-btn.activated{
+	background-color: #2c3e50;
+	color: white;
+}
+
+#play-btn{
+	background-color: transparent;
+	color: #2c3e50;
+	border: none;
 }

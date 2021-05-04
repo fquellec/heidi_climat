@@ -20,10 +20,6 @@ function DonutMatrix(data, config){
 	const numberOfCategory = uniqueCategory.length;
 	const numberOfDonutPerLine = Math.ceil(numberOfCategory/config.numberOfLines);
 	
-	console.log("Number of categories: ", numberOfCategory)
-	console.log("Number of labels: ", uniqueLabels.length)
-	console.log("Number of donuts per line: ", numberOfDonutPerLine)
-	
 	// create a tooltip
 	const tooltip = d3.select("body")
 	  .append("div")
@@ -79,8 +75,6 @@ function DonutMatrix(data, config){
 	function drawDonut(categoryName){
 		var coords = getPos(categoryName);
 		
-		console.log(coords[0], coords[1])
-		
 		var center = [ (radius + coords[0]*radius*2),  (radius + coords[1]*radius*2) ]
 		
 		var g = svg.append("g")
@@ -126,8 +120,9 @@ function DonutMatrix(data, config){
 			  }
 			
 			  var percent = d.data.value/totalByCategory[d.data.category]*100;
-			  var textToDisplay = "<b>" + d.data.label + "</b><br><br>" 
-								  + "<b>" + d.data.value + "/" + totalByCategory[d.data.category] + " <br>("+Math.round(percent * 100) / 100+"%)";
+			  var textToDisplay = "<center><b>" + d.data.label + "</b><br>" 
+								  //+ "<b>" + d.data.value + "/" + totalByCategory[d.data.category] 
+			  					  +"<br><b>"+Math.round(percent * 100) / 100+"%</b></center>";
 				
 			  tooltip
 				.html(textToDisplay)
@@ -139,7 +134,15 @@ function DonutMatrix(data, config){
 			.attr("transform", function(d) { return "translate(" + label.centroid(d) + ")"; })
 			.attr("dy", "0.35em")
 			.style("text-anchor", "middle")
-			.text(function(d) { return d.value; });
+			.text(function(d) { return d.value; })
+			.on("mouseover", function(d){
+				tooltip.style("opacity", 1)
+				d3.select(this).style('stroke-width', "0px");
+			})
+			.on("mouseleave", function(d){
+				tooltip.style("opacity", 0)
+				d3.select(this).style('stroke-width', "3px");
+			});
 		
 		svg.append("text")
 			.attr("transform", "translate(" + center[0] + "," + center[1] + ")")
@@ -153,23 +156,23 @@ function DonutMatrix(data, config){
 
 DonutMatrix([
 		{ category: 'Mammifères', label: 'Espèces non evaluées', value: 6513-5940 },
-		{ category: 'Mammifères', label: 'Espèces non menacées actuellement', value: 5940-1323 },
+		{ category: 'Mammifères', label: 'Espèces non menacées', value: 5940-1323 },
 		{ category: 'Mammifères', label: 'Espèces menacées', value: 1323 },
 		
 		{ category: 'Oiseaux', label: 'Espèces non evaluées', value: 11158-11158 },
-		{ category: 'Oiseaux', label: 'Espèces non menacées actuellement', value: 11158-1481 },
+		{ category: 'Oiseaux', label: 'Espèces non menacées', value: 11158-1481 },
 		{ category: 'Oiseaux', label: 'Espèces menacées', value: 1481 },
 	
 		{ category: 'Reptiles', label: 'Espèces non evaluées', value: 11341-8492  },
-		{ category: 'Reptiles', label: 'Espèces non menacées actuellement', value: 8492-1458 },
+		{ category: 'Reptiles', label: 'Espèces non menacées', value: 8492-1458 },
 		{ category: 'Reptiles', label: 'Espèces menacées', value: 1458 },
 	
 		{ category: 'Amphibiens', label: 'Espèces non evaluées', value: 8309-7212 },
-		{ category: 'Amphibiens', label: 'Espèces non menacées actuellement', value: 7212-2442 },
+		{ category: 'Amphibiens', label: 'Espèces non menacées', value: 7212-2442 },
 		{ category: 'Amphibiens', label: 'Espèces menacées', value: 2442 },
 		
 		{ category: 'Poissons', label: 'Espèces non evaluées', value: 35797-22005  },
-		{ category: 'Poissons', label: 'Espèces non menacées actuellement', value: 22005-3210  },
+		{ category: 'Poissons', label: 'Espèces non menacées', value: 22005-3210  },
 		{ category: 'Poissons', label: 'Espèces menacées', value: 3210 },	  
 	],
 	{
@@ -178,7 +181,7 @@ DonutMatrix([
 		numberOfLines		: 2,
 		borderColor         : ["white", "grey"],
 		categoryColor 		: ["#e8e8e8", "#4daf7c", "#d64541"],
-		tooltip_width       : "100px",
+		tooltip_width       : "130px",
 	}
 
 )

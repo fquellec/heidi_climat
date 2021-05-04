@@ -1,7 +1,7 @@
 // Define Default constants
 const config = {
-	width               : d3.select('#map').node().getBoundingClientRect().width,
-	height              : d3.select('#map').node().getBoundingClientRect().width*1.12,
+	width               : 500,//d3.select('#map').node().getBoundingClientRect().width,
+	height              : 560,//d3.select('#map').node().getBoundingClientRect().width*1.12,
 	padding             : 0,
 	colorScaleDomain    : [0, 100],
 	colorScaleRange     : ["#ececec", "#4285F4"],
@@ -25,8 +25,6 @@ var svg = d3.select("#map")
 
 const map  = svg
 	.append('g')
-	.attr("width", config.width)
-	.attr("height", config.height)
 	.attr('pointer-events', 'all');
 
 // Map projection to compute coordinates 
@@ -119,16 +117,17 @@ var grad = {0: myColor(0),
 // Add Legend
 svg.append("g")
 	.attr("class", "legendLinear")
-	.attr("transform", "translate(20," + (config.height/2).toString() + ")");
+	.attr("transform", "translate(20," + (320).toString() + ")")//config.height/2
+	.style("font-size", "0.5rem");
 
 var colorLegend = d3.legendColor()
 	.labelFormat(d3.format(".0f"))
 	.shapeWidth(5)
-	.shapePadding(0)
+	.shapePadding(1)
 	.shapeHeight(20)
 	.cells(9)
-	.title("Nombre de jours")
-	.titleWidth(100)
+	.title("Nombre de jours caniculaire par année")
+	.titleWidth(70)
 	.orient("vertical")
 	.scale(myColor)
 	.labelOffset(12);
@@ -154,12 +153,19 @@ function initializeHeatMap(error, data){
 		heat.draw(0.05);
 	}
 
+	
+	var valuesSlider = [1990, 2000, 2010, 2020, 2030, 2040, 2050, 2060, 2070]
+					
 	// Add Play Pause Button
-	var playButton = d3.select("#play-button");
+	var playButton = d3.select("#slider-container")
+          .append("button")
+			  .attr("type","button")
+			  .attr("id","play-btn")
+	playButton.append("i").attr("class","fas fa-play");	
+	
 	var moving = false;
-	var start_date = 1990;
-	var current_value = 2000;
-	var target_value = 2070;
+	var current_index = 0;
+	var next_index = 1;
 	
 	playButton
 		.on("click", function() {
@@ -175,30 +181,51 @@ function initializeHeatMap(error, data){
 			button.html('<i class="fas fa-pause"></i>');
 		}
 	})
-	
-	// Add Label 
-	var label = svg.append("text")  
-		.attr("class", "label")
-		.attr("text-anchor", "middle")
-		.attr("transform", "translate(150,20)");
-
-	function step() {
-		update(current_value);
-		current_value = current_value + 10;
-		if (current_value > target_value) {
+					
+	valuesSlider.forEach((v, i)=> {
+		d3.select("#slider-container")
+          .append("button")
+          .attr("type","button")
+          .attr("class","slider-btn")
+          .attr("id","btn-" + v)
+		  .on("click", function() {
 			moving = false;
-			current_value = start_date;
+			if (!(isNaN(timer))){
+				clearInterval(timer);
+			}	
+			// timer = 0;
+			playButton.html('<i class="fas fa-play"></i>');
+			
+			current_index = i;
+			next_index = i+1 >= valuesSlider.length ? 0 : i+1;
+			update(v);
+			d3.selectAll('.slider-btn').classed('activated',false);
+			d3.select(this).classed('activated',true);	
+		   })
+          .append("div")
+          .attr("class","label")
+          .text(v + "'")
+	}) 
+	
+	function step() {
+		current_index = next_index;
+		update(valuesSlider[next_index]);
+		next_index = current_index + 1;
+		if (next_index >= valuesSlider.length) {
+			moving = false;
+			next_index = 0;
 			clearInterval(timer);
 			// timer = 0;
 			playButton.html('<i class="fas fa-play"></i>');
 		}
 	}
-	
+
 	function update(h) {
 		console.log("Updating years : ", h);
-		
+		d3.selectAll('.slider-btn').classed('activated',false);
+		d3.select('#btn-' + h).classed('activated',true);
 		// update text of label according to slider scale
-		label.text(h.toString() + " - " + (h + 10).toString());
+		//label.text(h.toString() + " - " + (h + 10).toString());
 
 		// filter data set and redraw heatmap
 		var newData = values.filter(function(d) {
@@ -206,7 +233,7 @@ function initializeHeatMap(error, data){
 		})
 
 		displayHeat(newData);
-	}
+	}   
 	
 	update(1990);
 }
