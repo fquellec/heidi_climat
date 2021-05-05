@@ -29,6 +29,9 @@
 		<!-- Custom CSS  for the dashboard-->
 		<link rel="stylesheet" media="all" href="./css/carousel.css">
 
+		<!-- Slider for melting glaciers comparison -->
+		<link rel="stylesheet" href="https://unpkg.com/beerslider/dist/BeerSlider.css">
+
 		<!-- Transition bewteen pages -->
 		<link rel="stylesheet" href="./css/normalize.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
@@ -66,74 +69,57 @@
 
 		<main role="main" id="main" class="m-scene">
 			<div id="main" class="main-scene">
-				<div class="container marketing scene_element scene_element--fadeinup">
+				<div class="container marketing scene_element scene_element--fadeinright">
 					
 					<div class="row heading">
 						<div class="col-12">
-							<h2 class="featurette-heading">Les actions à mettre en place</h2>
-							<p class="lead">Regardons-nous le train passer sans rien faire? Le premier sommet de la Terre de Rio en 1992 a donné naissance à la Convention-cadre des Nations unies sur les changements climatiques. Le coup d’envoi à des accords internationaux comme le protocole de Kyoto (signé en 1997), et plus récemment l’accord de Paris (2015). Mais la diplomatie climatique est un lent processus, souvent peu contraignant, alors qu’il y a urgence.</p>
+							<h2 class="featurette-heading">Le climat se dérègle <span class="text-muted">en Suisse</span></h2>
+							<p class="lead">La Suisse n'échappe pas au dérèglement climatique.  Certains signaux d’alerte y sont plus visibles qu’ailleurs.</p>
 						</div>
 					</div>
 				
 					<hr class="featurette-divider">
+					
 					<!-- START THE FEATURETTES -->
 					<div class="row featurette">
-						<div class="col-md-6">
-							<h2 class="featurette-heading">Atteindre la neutralité carbone</h2>
-							<p class="lead">En Suisse, les émissions de gaz à effet de serre restent encore supérieures à la cible que la Confédération s’est fixée pour 2020, soit une réduction de 20% par rapport à 1990. Se posent aussi des enjeux de justice climatique, face à des problèmes comme la responsabilité historique de certains pays dans la crise climatique, la part des émissions importées, sans oublier les mécanismes de compensation carbone, qui conduisent à un risque de double-comptage.</p>
+						<div class="col-md-6 order-md-1">
+							<h2 class="featurette-heading">Evolution des températures <span class="text-muted">en Suisse</span></h2>
+							<p class="lead">Selon l’Office fédéral de la Statistique, 2020 a été la deuxième année la plus chaude en Suisse – derrière 2018 – depuis le début des mesures en 1864. En Europe, c’est même l’année la plus chaude jamais enregistrée. </p>
 						</div>
-						<div class="col-md-6">
+						<div class="col-md-6 order-md-2">
 							<div class="iframe-loader">
-								<iframe title="covid resume" src="https://embed.newsteller.io/3d66162d4c40" width="100%" height="500px" frameborder="0"> </iframe>
-								<div class="sourceRef">
-								Source: <a href="https://www.bfs.admin.ch/bfs/fr/home/statistiques/espace-environnement/indicateurs-environnement/tous-les-indicateurs/emissions-et-dechets/emissions-gaz-effet-de-serre.assetdetail.12767205.html">OFSP</a>
-								</div>
+								<iframe title="covid resume" src="https://embed.newsteller.io/e64bcb3f4c68" width="100%" height="500px" frameborder="0"> </iframe>
+							</div>
+							
+							<div class="sourceRef">
+								Source: <a href="https://www.meteosuisse.admin.ch/product/input/climate-data/swissmean/10.18751-Climate-Timeseries-CHTM-swiss.txt">MeteoSuisse</a>
 							</div>
 						</div>
 					</div>
-
+					
 					<hr class="featurette-divider">
-
+					
+					
 					<div class="row featurette">
 						<div class="col-md-6 order-md-2">
-							<h2 class="featurette-heading">Les engagements des Etats</h2>
-							<p class="lead">Dans le cadre de l’accord de Paris, 196 pays se sont engagés à réduire leurs émissions de CO2. Dans ce cadre, la Suisse s’est engagée à réduire ses émissions de 50% en 2030 par rapport à 1990, et à atteindre la neutralité carbone d’ici 2050.</p>
+							<h2 class="featurette-heading">Fonte des glaciers</h2>
+							<p class="lead"> C’est une des conséquences les plus visibles en Suisse du réchauffement climatique. Les glaciers alpins disparaissent progressivement. Selon les données du Réseau des relevés glaciologiques suisse (Glamos), le glacier de Zmutt – dont dépend celui du Cervin – a ainsi perdu près d'1,2 km de longueur en un siècle, avec une accélération marquée dès les années 1940.
+							</p>
 						</div>
 						<div class="col-md-6 order-md-1">
 							<div class="iframe-loader">
-								
+								<div id="slider" class="beer-slider" data-beer-label="2005">
+									<img src="./assets/2005_matterhorn.jpeg" alt="">
+									<div class="beer-reveal" data-beer-label="1960">
+										<img src="./assets/1960_matterhorn.jpeg" alt="">
+									</div>
+								</div>
+							</div>
+							<div class="sourceRef">
+								Source: <a href="https://climate.nasa.gov/interactives/global-ice-viewer/#/1/14">NASA</a>
 							</div>
 						</div>
 					</div>
-
-					<hr class="featurette-divider">
-
-					<div class="row featurette">
-						<div class="col-md-6">
-							<h2 class="featurette-heading">Augmenter la part des énergies renouvelables</h2>
-							<p class="lead">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
-						</div>
-						<div class="col-md-6">
-							<div class="iframe-loader">
-								
-							</div>
-						</div>
-					</div>
-
-					<hr class="featurette-divider">
-
-					<div class="row featurette">
-						<div class="col-md-6 order-md-2">
-							<h2 class="featurette-heading">Impliquer les acteurs financiers</h2>
-							<p class="lead">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem.</p>
-						</div>
-						<div class="col-md-6">
-							<div class="iframe-loader">
-						
-							</div>
-						</div>
-					</div>
-
 					<!-- /END THE FEATURETTES -->
 
 				</div><!-- /.container -->
@@ -144,13 +130,13 @@
 				<div class="container">
 					<div class="row justify-content-center">
 						<div class="col-1">
-							<p><a onclick="document.location='impact.html'" id="left"><i class="fas fa-angle-left "></i></a></p> 
+							<p><a class="disabled-link" onclick="document.location='dereglement_monde.html'" id="left"><i class="fas fa-angle-left "></i></a></p> 
 						</div>
 						<div class="col-10 align">
-							<p>5. Les actions à mettre en place</p>
+							<p>2. Le climat se dérègle en Suisse</p>
 						</div>
 						<div class="col-1">
-							<p><a class="disabled-link" href="#" id="right"><i class="fas fa-angle-right" disable></i></a></p> <!-- onclick="window.location.href = 'faute.html'"-->
+							<p><a onclick="document.location='faute.html'" id="right"><i class="fas fa-angle-right"></i></a></p> <!-- onclick="window.location.href = 'faute.html'"-->
 						</div>
 					</div>
 				</div>
@@ -161,6 +147,12 @@
 		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+		<!-- Slider for melting glaciers comparison -->
+		<script src="https://unpkg.com/beerslider/dist/BeerSlider.js"></script>
+		<script>
+			new BeerSlider(document.getElementById('slider'));
+		</script>
 
 		<!-- transitions scripts -->
 		<script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>

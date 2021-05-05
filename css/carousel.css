@@ -7,6 +7,7 @@
 body {
   padding-top: 48px;
   padding-bottom: 8rem;
+  padding-top: 8rem;
   color: #5a5a5a;
   font-family: "Open Sans";
 }
@@ -14,6 +15,7 @@ body {
 
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
+
 
 /* Carousel base class */
 .carousel {
