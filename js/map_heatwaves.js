@@ -1,7 +1,7 @@
 // Define Default constants
 const config = {
 	width               : 500,//d3.select('#map').node().getBoundingClientRect().width,
-	height              : 560,//d3.select('#map').node().getBoundingClientRect().width*1.12,
+	height              : 500,//d3.select('#map').node().getBoundingClientRect().width*1.12,
 	padding             : 0,
 	colorScaleDomain    : [0, 100],
 	colorScaleRange     : ["#ececec", "#4285F4"],
@@ -29,7 +29,7 @@ const map  = svg
 
 // Map projection to compute coordinates 
 const projection = d3.geoMercator()
-	.center([0,53])
+	.center([0,50])
 	.scale(550)
 	.translate([ config.width/2, config.height/2 ]);
 
@@ -117,7 +117,7 @@ var grad = {0: myColor(0),
 // Add Legend
 svg.append("g")
 	.attr("class", "legendLinear")
-	.attr("transform", "translate(20," + (320).toString() + ")")//config.height/2
+	.attr("transform", "translate(20," + (260).toString() + ")")//config.height/2
 	.style("font-size", "0.5rem");
 
 var colorLegend = d3.legendColor()
