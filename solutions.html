@@ -99,9 +99,10 @@
 							<h2 class="featurette-heading">Les engagements des Etats</h2>
 							<p class="lead">Dans le cadre de l’accord de Paris, 196 pays se sont engagés à réduire leurs émissions de CO2. Dans ce cadre, la Suisse s’est engagée à réduire ses émissions de 50% en 2030 par rapport à 1990, et à atteindre la neutralité carbone d’ici 2050.</p>
 						</div>
-						<div class="col-md-6 order-md-1">
-							<div class="iframe-loader">
-								
+						<div class="col-md-6 order-md-1">	
+							<div id="map_engagement"></div>
+							<div class="sourceRef">
+							Source: <a href="https://www.carbonbrief.org/paris-2015-tracking-country-climate-pledges">CarbonBrief</a>
 							</div>
 						</div>
 					</div>
@@ -134,10 +135,11 @@
 							<div class="iframe-loader">
 								<iframe title="covid resume" src="https://embed.newsteller.io/253718200f2d" width="100%" height="550px" frameborder="0"> </iframe>
 								<div class="sourceRef">
-								Source: <a href="https://www.irena.org/Statistics/View-Data-by-Topic/Finance-and-Investment/Investment-Trends">IRENA</a>
+									Source: <a href="https://www.irena.org/Statistics/View-Data-by-Topic/Finance-and-Investment/Investment-Trends">IRENA</a>
 								</div>
-						
 							</div>
+						
+
 						</div>
 					</div>
 
@@ -176,5 +178,16 @@
 		
 		<!-- main script -->
 		<script src="./js/main.js"></script>
+		
+		<!-- Import D3 js modules -->
+		<script src="https://d3js.org/d3.v4.min.js"></script>
+		<script src="https://unpkg.com/d3-simple-slider"></script>
+		<script src="https://d3js.org/d3-array.v2.min.js"></script>
+		<script src="https://d3js.org/d3-geo.v2.min.js"></script>
+		<script src="https://d3js.org/d3-color.v2.min.js"></script> 
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.js" integrity="sha512-5mCB0Kvv97yTzqo0174qxPjMisck/WlK51+mw/RV7UfYbtHI8LuLR82BzZuxHUKSfbh75u9cZHgUcqrZDaBJuA==" crossorigin="anonymous"></script>
+		
+		<!-- map engagement --> 
+		<script src="js/map_paris_agreement.js"></script>
 	</body>
 </html>
