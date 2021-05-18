@@ -16,33 +16,23 @@
     <!-- Preload woff2 fonts (browsers supporting preload support woff2) -->
     <link rel="preload" href="https://heidi-17455.kxcdn.com/assets/roboto-v18-latin_latin-ext-regular-f9bc132980c62433dfd76631f5a602fd1bf318141d67ebb6b70b4d3cc92555b0.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     <link rel="preload" href="https://heidi-17455.kxcdn.com/assets/roboto-v18-latin_latin-ext-700-1f03b3082883c94de09ea4c0b38092a45f2f7ca60c14889818a3e19057da34b8.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-    <link rel="preload" href="https://heidi-17455.kxcdn.com/assets/roboto-slab-v7-latin_latin-ext-300-bce959fb5c853a5923b15508722333f2188251babbdf6c280f8e3e23faf053fc.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="https://heidi-17455.kxcdn.com/assets/roboto-slab-v7-latin_latin-ext-regular-c522ad036c6de7f50af3215dffd3c5b7ca323c6ed43c43baa736a7554ef6bbec.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     <link rel="preload" href="https://heidi-17455.kxcdn.com/assets/roboto-slab-v7-latin_latin-ext-700-9c1369d1bb82f208798dec741ce7d920794cc4ce429493a96b88acf0810a0cfb.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     <link rel="preload" href="https://heidi-17455.kxcdn.com/assets/EuclidFlex-Medium-subset-1adc11f962e72cdd362dc663024e7b3d57cbf1d614097dc6995aa010c7313d87.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-
     <!-- Heidi CSS -->
-    <link rel="stylesheet" media="all" href="./css/heidi.css">
+    <link rel="stylesheet" media="all" href="https://heidi-17455.kxcdn.com/assets/heidi-917a3f12238247e646fccf33b5e69fc980caf76ca74fca863a0cc9bf7d6920d1.css">
+    <!-- Bootstrap CSS 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous"> -->
 
     <!-- Custom CSS  for the dashboard-->
     <link rel="stylesheet" media="all" href="./css/dashboard.css">
+
   </head>
 
   <body>
     <div class="main-nav" role="banner">
         <header>
           <div class="main-nav__bar">
-            <div class="toggle-menu main-nav__burger-button">
-              <div class="icon icon__burger">
-                <div id="menu-burger" class="menu-burger">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </div>
-              </div>
-            </div>
             <div class="main-nav__side main-nav__side--desktop">  
             </div>
 
@@ -52,14 +42,13 @@
               </a>
             </span>
             <div class="main-nav__side main-nav__side--profil">
-                <a class="btn btn--small btn--red" href="https://www.heidi.news/invitations">Recommander Heidi.news</a>
             </div>
           </div>
       </header>
     </div>
 
     <main role="main">
-        <section class="jumbotron text-center">
+      <section class="jumbotron text-center">
         <div class="container">
           <h1 class="jumbotron-heading">Le Climat en 2021</h1>
           <p class="lead text-muted">blabla blabla le climat en Suisse et dans le monde</p>
@@ -169,18 +158,22 @@
       </div>
     </main>
 
-    <footer class="text-muted">
-      <div class="container">
-        <p class="float-right">
-          <a href="#">Retour au début</a>
-        </p>
-        <p>&copy; Heidi.News</p>
+    <footer class="heidi-footer">
+      <div class="heidi-footer__bg">
+        <div class="main-section main-section--footer">
+          <div class="heidi-footer__legal">
+            <span class="heidi-footer__logo">
+              <a href="/">
+                <img class="heidi-footer__logo__img" src="https://heidi-17455.kxcdn.com/assets/logo-heidi-3c0530efbe342f9f964d2c5b2f4030f559d695d07102bde1e6b020133f848c29.svg">
+              </a>
+            </span>
+            <span>© 2021 Heidi.news</span> –
+          </div>
+        </div>
       </div>
     </footer>
-
-
-     <!-- Import Bootstrap js -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script> 
+     <!-- Import Bootstrap js 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script> -->
     
   </body>
 </html>
