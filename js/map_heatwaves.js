@@ -1,7 +1,7 @@
 // Define Default constants
 const config = {
-	width               : 500,//d3.select('#map').node().getBoundingClientRect().width,
-	height              : 500,//d3.select('#map').node().getBoundingClientRect().width*1.12,
+	width               : 400,//d3.select('#map').node().getBoundingClientRect().width,
+	height              : 400,//d3.select('#map').node().getBoundingClientRect().width*1.12,
 	padding             : 0,
 	colorScaleDomain    : [0, 100],
 	colorScaleRange     : ["#ececec", "#4285F4"],

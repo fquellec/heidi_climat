@@ -1,40 +1,28 @@
 <!doctype html>
-<html lang="en">
-	<head>
-		<!-- Required meta tags -->
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="description" content="An interactive map with information on climate change around the world">
-		<meta name="author" content="Francois Quellec">
-		<link rel="icon" href="./assets/favicon.ico">
-
-		<title>Dashboard Climat</title>
-
-		<!-- FontAwesome -->
-		<script src="https://kit.fontawesome.com/66b68f1fd7.js" crossorigin="anonymous"></script>
-
-		<!-- Preload woff2 fonts (browsers supporting preload support woff2) -->
-		<link rel="preload" href="https://heidi-17455.kxcdn.com/assets/roboto-v18-latin_latin-ext-regular-f9bc132980c62433dfd76631f5a602fd1bf318141d67ebb6b70b4d3cc92555b0.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-		<link rel="preload" href="https://heidi-17455.kxcdn.com/assets/roboto-v18-latin_latin-ext-700-1f03b3082883c94de09ea4c0b38092a45f2f7ca60c14889818a3e19057da34b8.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-		<link rel="preload" href="https://heidi-17455.kxcdn.com/assets/roboto-slab-v7-latin_latin-ext-300-bce959fb5c853a5923b15508722333f2188251babbdf6c280f8e3e23faf053fc.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-		<link rel="preload" href="https://heidi-17455.kxcdn.com/assets/roboto-slab-v7-latin_latin-ext-700-9c1369d1bb82f208798dec741ce7d920794cc4ce429493a96b88acf0810a0cfb.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-		<link rel="preload" href="https://heidi-17455.kxcdn.com/assets/EuclidFlex-Medium-subset-1adc11f962e72cdd362dc663024e7b3d57cbf1d614097dc6995aa010c7313d87.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-
-		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-		<!-- Heidi CSS -->
-		<link rel="stylesheet" media="all" href="./css/heidi.css">
-
-		<!-- Custom CSS  for the dashboard-->
-		<link rel="stylesheet" media="all" href="./css/carousel.css">
-
-		<!-- Transition bewteen pages -->
-		<link rel="stylesheet" href="./css/normalize.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-		<link rel="stylesheet" href="./css/pageTransitions.css">
-
-	</head>
+<html lang="fr">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="An interactive map with information on climate change around the world">
+    <meta name="author" content="Francois Quellec">
+    <link rel="icon" href="./assets/favicon.ico">
+    <title>Dashboard Climat - Les actions à mettre en place</title>
+     <!-- FontAwesome -->
+    <script src="https://kit.fontawesome.com/66b68f1fd7.js" crossorigin="anonymous"></script>
+    <!-- Preload woff2 fonts (browsers supporting preload support woff2) -->
+    <link rel="preload" href="https://heidi-17455.kxcdn.com/assets/roboto-v18-latin_latin-ext-regular-f9bc132980c62433dfd76631f5a602fd1bf318141d67ebb6b70b4d3cc92555b0.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="https://heidi-17455.kxcdn.com/assets/roboto-v18-latin_latin-ext-700-1f03b3082883c94de09ea4c0b38092a45f2f7ca60c14889818a3e19057da34b8.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="https://heidi-17455.kxcdn.com/assets/roboto-slab-v7-latin_latin-ext-regular-c522ad036c6de7f50af3215dffd3c5b7ca323c6ed43c43baa736a7554ef6bbec.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="https://heidi-17455.kxcdn.com/assets/roboto-slab-v7-latin_latin-ext-700-9c1369d1bb82f208798dec741ce7d920794cc4ce429493a96b88acf0810a0cfb.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="https://heidi-17455.kxcdn.com/assets/EuclidFlex-Medium-subset-1adc11f962e72cdd362dc663024e7b3d57cbf1d614097dc6995aa010c7313d87.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <!-- Heidi CSS -->
+    <link rel="stylesheet" media="all" href="https://heidi-17455.kxcdn.com/assets/heidi-917a3f12238247e646fccf33b5e69fc980caf76ca74fca863a0cc9bf7d6920d1.css">
+    <!-- Bootstrap CSS 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous"> -->
+    <!-- Custom CSS  for the dashboard-->
+    <link rel="stylesheet" media="all" href="./css/dashboard.css">
+  </head>
 
 	<body>
 		<div class="main-nav" role="banner">
@@ -63,100 +51,78 @@
 			</header>
 		</div>
 
-		<main role="main" id="main" class="m-scene">
-			<div id="main" class="main-scene">
-				<div class="container marketing scene_element scene_element--fadeinup">
-					
-					<div class="row heading">
-						<div class="col-12">
-							<h2 class="featurette-heading">Les actions à mettre en place</h2>
-							<p class="lead">Regardons-nous le train passer sans rien faire? Le premier sommet de la Terre de Rio en 1992 a donné naissance à la Convention-cadre des Nations unies sur les changements climatiques. Le coup d’envoi à des accords internationaux comme le protocole de Kyoto (signé en 1997), et plus récemment l’accord de Paris (2015). Mais la diplomatie climatique est un lent processus, souvent peu contraignant, alors qu’il y a urgence.</p>
-						</div>
+		<div class="main-section">
+			<h4 class="heidi-title">
+				Le Climat en 2021
+			</h4>
+		    <div class="about__reason">
+			    <h4 class="about__reason__title">
+			    	Les actions à mettre en place
+			    </h4>
+		      	<p class="about__reason__text">Regardons-nous le train passer sans rien faire? Le premier sommet de la Terre de Rio en 1992 a donné naissance à la Convention-cadre des Nations unies sur les changements climatiques. Le coup d’envoi à des accords internationaux comme le protocole de Kyoto (signé en 1997), et plus récemment l’accord de Paris (2015). Mais la diplomatie climatique est un lent processus, souvent peu contraignant, alors qu’il y a urgence.</p>
+		    </div>
+		    <div class="arrow-medium">
+		    	<img src="https://heidi-17455.kxcdn.com/assets/pictos/arrow-medium-353528957332536ba5363c6709f9d1186823381f8fe0d810875d0c75f1bdd8ce.svg">
+		    </div>
+		</div>
+		<div class="main-section main-section--large">
+		    <div class="about__reason">
+			    <p class="about__text" style="margin: 8px 0 10px;">
+    			<span class="about__text--accent">Atteindre la neutralité carbone</span>
+  				</p>
+				<div class="iframe-loader">
+					<iframe title="covid resume" src="https://embed.newsteller.io/3d66162d4c40" width="100%" height="500px" frameborder="0"> </iframe>
+					<div class="sourceRef">
+						Source: <a href="https://www.bfs.admin.ch/bfs/fr/home/statistiques/espace-environnement/indicateurs-environnement/tous-les-indicateurs/emissions-et-dechets/emissions-gaz-effet-de-serre.assetdetail.12767205.html">OFSP</a>
 					</div>
-				
-					<hr class="featurette-divider">
-					<!-- START THE FEATURETTES -->
-					<div class="row featurette">
-						<div class="col-md-6">
-							<h2 class="featurette-heading">Atteindre la neutralité carbone</h2>
-							<p class="lead">En Suisse, les émissions de gaz à effet de serre restent encore supérieures à la cible que la Confédération s’est fixée pour 2020, soit une réduction de 20% par rapport à 1990. Se posent aussi des enjeux de justice climatique, face à des problèmes comme la responsabilité historique de certains pays dans la crise climatique, la part des émissions importées, sans oublier les mécanismes de compensation carbone, qui conduisent à un risque de double-comptage.</p>
-						</div>
-						<div class="col-md-6">
-							<div class="iframe-loader">
-								<iframe title="covid resume" src="https://embed.newsteller.io/3d66162d4c40" width="100%" height="500px" frameborder="0"> </iframe>
-								<div class="sourceRef">
-								Source: <a href="https://www.bfs.admin.ch/bfs/fr/home/statistiques/espace-environnement/indicateurs-environnement/tous-les-indicateurs/emissions-et-dechets/emissions-gaz-effet-de-serre.assetdetail.12767205.html">OFSP</a>
-								</div>
-							</div>
-						</div>
+				</div>
+		      	<p class="about__reason__text">En Suisse, les émissions de gaz à effet de serre restent encore supérieures à la cible que la Confédération s’est fixée pour 2020, soit une réduction de 20% par rapport à 1990. Se posent aussi des enjeux de justice climatique, face à des problèmes comme la responsabilité historique de certains pays dans la crise climatique, la part des émissions importées, sans oublier les mécanismes de compensation carbone, qui conduisent à un risque de double-comptage.</p>
+		    </div>
+		    <div class="about__reason">
+			    <p class="about__text" style="margin: 8px 0 10px;">
+    			<span class="about__text--accent">Les engagements des Etats</span>
+  				</p>
+				<div id="map_engagement"></div>
+				<div class="sourceRef">
+					Source: <a href="https://www.carbonbrief.org/paris-2015-tracking-country-climate-pledges">CarbonBrief</a>
+				</div>
+		      	<p class="about__reason__text">Dans le cadre de l’accord de Paris, 196 pays se sont engagés à réduire leurs émissions de CO2. Dans ce cadre, la Suisse s’est engagée à réduire ses émissions de 50% en 2030 par rapport à 1990, et à atteindre la neutralité carbone d’ici 2050.</p>
+		    </div>
+		    <div class="about__reason">
+			    <p class="about__text" style="margin: 8px 0 10px;">
+    			<span class="about__text--accent">Augmenter la part des énergies renouvelables</span>
+  				</p>
+				<div class="iframe-loader">
+					<iframe title="covid resume" src="https://embed.newsteller.io/f6c40895f7af" width="100%" height="550px" frameborder="0"> </iframe>
+					<div class="sourceRef">
+						Source: <a href="https://www.strom.ch/de/service/stromkennzeichnung/lieferantenmix-schweiz?tab=map&year=2020#2020">Étiquetage électrique Suisse</a>
 					</div>
-
-					<hr class="featurette-divider">
-
-					<div class="row featurette">
-						<div class="col-md-6 order-md-2">
-							<h2 class="featurette-heading">Les engagements des Etats</h2>
-							<p class="lead">Dans le cadre de l’accord de Paris, 196 pays se sont engagés à réduire leurs émissions de CO2. Dans ce cadre, la Suisse s’est engagée à réduire ses émissions de 50% en 2030 par rapport à 1990, et à atteindre la neutralité carbone d’ici 2050.</p>
-						</div>
-						<div class="col-md-6 order-md-1">	
-							<div id="map_engagement"></div>
-							<div class="sourceRef">
-							Source: <a href="https://www.carbonbrief.org/paris-2015-tracking-country-climate-pledges">CarbonBrief</a>
-							</div>
-						</div>
+				</div>
+		      	<p class="about__reason__text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+		    </div>
+		    <div class="about__reason">
+			    <p class="about__text" style="margin: 8px 0 10px;">
+    			<span class="about__text--accent">Impliquer les acteurs financiers</span>
+  				</p>
+				<div class="iframe-loader">
+					<iframe title="covid resume" src="https://embed.newsteller.io/253718200f2d" width="100%" height="550px" frameborder="0"> </iframe>
+					<div class="sourceRef">
+						Source: <a href="https://www.irena.org/Statistics/View-Data-by-Topic/Finance-and-Investment/Investment-Trends">IRENA</a>
 					</div>
+				</div>
+		      	<p class="about__reason__text">quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem</p>
+		    </div>
+		</div>
 
-					<hr class="featurette-divider">
-
-					<div class="row featurette">
-						<div class="col-md-6">
-							<h2 class="featurette-heading">Augmenter la part des énergies renouvelables</h2>
-							<p class="lead">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
-						</div>
-						<div class="col-md-6">
-							<div class="iframe-loader">
-								<iframe title="covid resume" src="https://embed.newsteller.io/f6c40895f7af" width="100%" height="550px" frameborder="0"> </iframe>
-								<div class="sourceRef">
-								Source: <a href="https://www.strom.ch/de/service/stromkennzeichnung/lieferantenmix-schweiz?tab=map&year=2020#2020">Étiquetage électrique Suisse</a>
-								</div>
-							</div>
-						</div>
+		<footer class="heidi-footer">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-1">
+						<p><a onclick="document.location='impact.html'" id="left"><i class="fas fa-angle-left "></i></a></p> 
 					</div>
-
-					<hr class="featurette-divider">
-
-					<div class="row featurette">
-						<div class="col-md-6 order-md-2">
-							<h2 class="featurette-heading">Impliquer les acteurs financiers</h2>
-							<p class="lead">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem.</p>
-						</div>
-						<div class="col-md-6">
-							<div class="iframe-loader">
-								<iframe title="covid resume" src="https://embed.newsteller.io/253718200f2d" width="100%" height="550px" frameborder="0"> </iframe>
-								<div class="sourceRef">
-									Source: <a href="https://www.irena.org/Statistics/View-Data-by-Topic/Finance-and-Investment/Investment-Trends">IRENA</a>
-								</div>
-							</div>
-						
-
-						</div>
+					<div class="col-10 align">
+						<p>5. Les actions à mettre en place</p>
 					</div>
-
-					<!-- /END THE FEATURETTES -->
-
-				</div><!-- /.container -->
-			</div>
-
-
-			<footer class="">
-				<div class="container">
-					<div class="row justify-content-center">
-						<div class="col-1">
-							<p><a onclick="document.location='impact.html'" id="left"><i class="fas fa-angle-left "></i></a></p> 
-						</div>
-						<div class="col-10 align">
-							<p>5. Les actions à mettre en place</p>
-						</div>
 						<div class="col-1">
 							<p><a class="disabled-link" href="#" id="right"><i class="fas fa-angle-right" disable></i></a></p> <!-- onclick="window.location.href = 'faute.html'"-->
 						</div>
