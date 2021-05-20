@@ -4,13 +4,6 @@
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
 
-body {
-  padding-top: 48px;
-  padding-bottom: 8rem;
-  padding-top: 8rem;
-  color: #5a5a5a;
-  font-family: "Open Sans";
-}
 
 
 /* CUSTOMIZE THE CAROUSEL
@@ -55,21 +48,6 @@ body {
 .marketing .col-lg-4 p {
   margin-right: .75rem;
   margin-left: .75rem;
-}
-
-
-/* Featurettes
-------------------------- */
-
-.featurette-divider {
-  margin: 5rem 0; /* Space out the Bootstrap <hr> more */
-}
-
-/* Thin out the marketing headings */
-.featurette-heading {
-  font-weight: 300;
-  line-height: 1;
-  letter-spacing: -.05rem;
 }
 
 
