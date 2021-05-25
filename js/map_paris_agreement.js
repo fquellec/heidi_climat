@@ -7,7 +7,7 @@ dflt_config = {
   colorScaleRange     : ["#ececec", "#87d37c"],
   borderColor         : ["white", "grey"],
   tooltip_format      : "Please define format",
-  tooltip_width       : "150px",
+  tooltip_width       : "200px",
   legend_title        : "",
 };
 
@@ -116,7 +116,6 @@ function drawMap(id, column, config){
 			.append("path")
 			.attr('class', 'country')
 			.attr("fill", function (d) {
-				console.log(d.properties.ISO_A3)
 				if (valuesById[d.properties.ISO_A3]){
 					return color(2);  
 				}
@@ -162,9 +161,11 @@ function drawMap(id, column, config){
 			.range([ 1, 40]);
 		
 		// Draw bubbles 
-		bubbles = map
+		var bubbles = map
 		  .selectAll(".bubble")
-		  .data(values)
+		  .data(values);
+		
+		bubbles
 		  .enter()
 		  .append("circle")
 		  	.attr('class', 'bubble')
@@ -173,8 +174,8 @@ function drawMap(id, column, config){
 				if(c){
 					return projection([c.lon, c.lat])[0] 
 				} else {
-					console.log("No centroid for ", d);
-					return 0;
+					//console.log("No centroid for ", d);
+					return -100;
 				}
 			})
 		    .attr("cy", function(d){ 
@@ -182,19 +183,19 @@ function drawMap(id, column, config){
 				if(c){
 					return projection([c.lon, c.lat])[1] 
 				} else {
-					console.log("No centroid for ", d);
-					return 0;
+					//console.log("No centroid for ", d);
+					return -100;
 				} 
 			})
 		    .attr("r", function(d){ return size(+d.values) })
-		    .style("fill", function(d){ return  '#F2F2F2' })
+		    .style("fill", function(d){ return  '#000000' })
 		    .attr("stroke", function(d){ return  "white" })
 		    .attr("stroke-width", 1)
 		    .attr("fill-opacity", .4)
 			.on("mouseover", function(d){
 				if (valuesById[d.iso_3] && valuesById[d.iso_3]['values'] != 0){
 					tooltip.style("opacity", 1)
-					d3.select(this.parentNode.appendChild(this)).style('stroke', "black");
+					d3.select(this).style('stroke', "black");//.parentNode.appendChild(this)
 				}
 			})
 			.on("mousemove", function(d){
@@ -234,6 +235,41 @@ function drawMap(id, column, config){
 						d3.select(this).style('stroke', 'white');
 					}
 				})
+		
+		
+		// add text in circles
+		bubbles
+			.enter()
+			.append("text")
+			.attr("class", "cases_text")
+			.attr("text-anchor","middle")
+			.attr("alignment-baseline", "middle")
+			.attr("x", function(d){ 
+				c = centroidsById[d.iso_2]
+				if(c){
+					return projection([c.lon, c.lat])[0] 
+				} else {
+					console.log("No centroid for ", d);
+					return -100;
+				} 		
+			})
+			.attr("y", function(d){ 
+				c = centroidsById[d.iso_2]
+				if(c){
+					return projection([c.lon, c.lat])[1] 
+				} else {
+					console.log("No centroid for ", d);
+					return -100;
+				} 
+			})// + 4
+			.attr("fill", "white")
+			.attr("font-size", function(d){
+				let val = size(+d['values']);
+				return val*0.5;
+			})
+			.attr("font-weight", "600")
+			.text(function(d){ return d['values'] + "%"})
+			.style("pointer-events", "none"); //Click through
 
 	}
 }
