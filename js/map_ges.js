@@ -116,7 +116,7 @@ function drawMap(id, column, config){
 			  }
 
 			  var textToDisplay = "<b>" + valuesById[d.properties.ISO_A3]['name'] + "</b><br><br>" 
-								  + "<b>Émissions totales de GES : </b>" + Math.round(valuesById[d.properties.ISO_A3]['values'] * 100) / 100 + " "+ config.unit + " d’équivalent CO2<br>";
+								  + "<b>Émissions totales de GES: </b>" + Math.round(valuesById[d.properties.ISO_A3]['values'] * 100) / 100 + " "+ config.unit + " d’équivalent CO2<br>";
 				
 			  tooltip
 				.html(textToDisplay)
@@ -161,7 +161,7 @@ config_global = {
   height              : 300,
   padding             : 0,
   colorScaleDomain    : [0, 10000],
-  colorScaleRange     : ["#ececec", "#4285F4"],
+  colorScaleRange     : ["#ececec", "#D6121E"],//"#4285F4"
   borderColor         : ["white", "grey"],
   tooltip_format      : "Please define format",
   tooltip_width       : "150px",
@@ -174,7 +174,7 @@ config_per_capita = {
   height              : 300,
   padding             : 0,
   colorScaleDomain    : [0, 20],
-  colorScaleRange     : ["#ececec", "#4285F4"],
+  colorScaleRange     : ["#ececec", "#D6121E"],//"#4285F4"
   borderColor         : ["white", "grey"],
   tooltip_format      : "Please define format",
   tooltip_width       : "150px",
