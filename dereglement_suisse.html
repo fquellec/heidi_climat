@@ -1,56 +1,34 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<!-- Required meta tags -->
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="description" content="An interactive map with information on climate change around the world">
-		<meta name="author" content="Francois Quellec">
-		<link rel="icon" href="./assets/favicon.ico">
-
-		<title>Dashboard Climat</title>
-
-		<!-- FontAwesome -->
-		<script src="https://kit.fontawesome.com/66b68f1fd7.js" crossorigin="anonymous"></script>
-
-		<!-- Preload woff2 fonts (browsers supporting preload support woff2) -->
-		<link rel="preload" href="https://heidi-17455.kxcdn.com/assets/roboto-v18-latin_latin-ext-regular-f9bc132980c62433dfd76631f5a602fd1bf318141d67ebb6b70b4d3cc92555b0.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-		<link rel="preload" href="https://heidi-17455.kxcdn.com/assets/roboto-v18-latin_latin-ext-700-1f03b3082883c94de09ea4c0b38092a45f2f7ca60c14889818a3e19057da34b8.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-		<link rel="preload" href="https://heidi-17455.kxcdn.com/assets/roboto-slab-v7-latin_latin-ext-300-bce959fb5c853a5923b15508722333f2188251babbdf6c280f8e3e23faf053fc.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-		<link rel="preload" href="https://heidi-17455.kxcdn.com/assets/roboto-slab-v7-latin_latin-ext-700-9c1369d1bb82f208798dec741ce7d920794cc4ce429493a96b88acf0810a0cfb.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-		<link rel="preload" href="https://heidi-17455.kxcdn.com/assets/EuclidFlex-Medium-subset-1adc11f962e72cdd362dc663024e7b3d57cbf1d614097dc6995aa010c7313d87.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-
-		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-		<!-- Heidi CSS -->
-		<link rel="stylesheet" media="all" href="./css/heidi.css">
-
-		<!-- Custom CSS  for the dashboard-->
-		<link rel="stylesheet" media="all" href="./css/carousel.css">
-
-		<!-- Slider for melting glaciers comparison -->
-		<link rel="stylesheet" href="https://unpkg.com/beerslider/dist/BeerSlider.css">
-
-		<!-- Transition bewteen pages -->
-		<link rel="stylesheet" href="./css/normalize.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-		<link rel="stylesheet" href="./css/pageTransitions.css">
-
-	</head>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="An interactive map with information on climate change around the world">
+    <meta name="author" content="Francois Quellec">
+    <link rel="icon" href="./assets/favicon.ico">
+    <title>Dashboard Climat - Le climat se dérègle en Suisse</title>
+     <!-- FontAwesome -->
+    <script src="https://kit.fontawesome.com/66b68f1fd7.js" crossorigin="anonymous"></script>
+    <!-- Preload woff2 fonts (browsers supporting preload support woff2) -->
+    <link rel="preload" href="https://heidi-17455.kxcdn.com/assets/roboto-v18-latin_latin-ext-regular-f9bc132980c62433dfd76631f5a602fd1bf318141d67ebb6b70b4d3cc92555b0.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="https://heidi-17455.kxcdn.com/assets/roboto-v18-latin_latin-ext-700-1f03b3082883c94de09ea4c0b38092a45f2f7ca60c14889818a3e19057da34b8.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="https://heidi-17455.kxcdn.com/assets/roboto-slab-v7-latin_latin-ext-regular-c522ad036c6de7f50af3215dffd3c5b7ca323c6ed43c43baa736a7554ef6bbec.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="https://heidi-17455.kxcdn.com/assets/roboto-slab-v7-latin_latin-ext-700-9c1369d1bb82f208798dec741ce7d920794cc4ce429493a96b88acf0810a0cfb.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="https://heidi-17455.kxcdn.com/assets/EuclidFlex-Medium-subset-1adc11f962e72cdd362dc663024e7b3d57cbf1d614097dc6995aa010c7313d87.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  	<!-- Slider for melting glaciers comparison -->
+	<link rel="stylesheet" href="https://unpkg.com/beerslider/dist/BeerSlider.css">
+    <!-- Heidi CSS -->
+    <link rel="stylesheet" media="all" href="https://heidi-17455.kxcdn.com/assets/heidi-917a3f12238247e646fccf33b5e69fc980caf76ca74fca863a0cc9bf7d6920d1.css">
+    <!-- Custom CSS  for the dashboard-->
+    <link rel="stylesheet" media="all" href="./css/dashboard.css">
+  </head>
 
 	<body>
 		<div class="main-nav" role="banner">
 			<header>
 				<div class="main-nav__bar">
 					<div class="toggle-menu main-nav__burger-button">
-						<div class="icon icon__burger">
-							<div id="menu-burger" class="menu-burger">
-								<span></span>
-								<span></span>
-								<span></span>
-							</div>
-						</div>
 					</div>
 					<div class="main-nav__side main-nav__side--desktop">  
 					</div>
@@ -61,92 +39,69 @@
 						</a>
 					</span>
 					<div class="main-nav__side main-nav__side--profil">
-						<a class="btn btn--small btn--red" href="https://www.heidi.news/invitations">Recommander Heidi.news</a>
 					</div>
 				</div>
 			</header>
 		</div>
 
-		<main role="main" id="main" class="m-scene">
-			<div id="main" class="main-scene">
-				<div class="container marketing scene_element scene_element--fadeinright">
-					
-					<div class="row heading">
-						<div class="col-12">
-							<h2 class="featurette-heading">Le climat se dérègle <span class="text-muted">en Suisse</span></h2>
-							<p class="lead">La Suisse n'échappe pas au dérèglement climatique.  Certains signaux d’alerte y sont plus visibles qu’ailleurs.</p>
-						</div>
-					</div>
-				
-					<hr class="featurette-divider">
-					
-					<!-- START THE FEATURETTES -->
-					<div class="row featurette">
-						<div class="col-md-6 order-md-1">
-							<h2 class="featurette-heading">Evolution des températures <span class="text-muted">en Suisse</span></h2>
-							<p class="lead">Selon l’Office fédéral de la Statistique, 2020 a été la deuxième année la plus chaude en Suisse – derrière 2018 – depuis le début des mesures en 1864. En Europe, c’est même l’année la plus chaude jamais enregistrée. </p>
-						</div>
-						<div class="col-md-6 order-md-2">
-							<div class="iframe-loader">
-								<iframe title="covid resume" src="https://embed.newsteller.io/e64bcb3f4c68" width="100%" height="500px" frameborder="0"> </iframe>
-							</div>
+		<div class="main-section">
+			<h4 class="heidi-title">
+				Le Climat en 2021
+			</h4>
+		    <div class="about__reason">
+			    <h4 class="about__reason__title">
+			    	Le climat se dérègle en Suisse
+			    </h4>
+		      	<p class="about__reason__text">La Suisse n'échappe pas au dérèglement climatique.  Certains signaux d’alerte y sont plus visibles qu’ailleurs.</p>
+		    </div>
+		    <div class="arrow-medium">
+		    	<img src="https://heidi-17455.kxcdn.com/assets/pictos/arrow-medium-353528957332536ba5363c6709f9d1186823381f8fe0d810875d0c75f1bdd8ce.svg">
+		    </div>
+		</div>
+
+		<div class="main-section main-section--large">
+		    <div class="about__reason">
+			    <p class="about__text" style="margin: 8px 0 10px;">
+    			<span class="about__text--accent">Evolution des températures en Suisse</span>
+  				</p>
+				<div class="iframe-loader">
+					<iframe title="covid resume" src="https://embed.newsteller.io/e64bcb3f4c68" width="100%" height="500px" frameborder="0"> </iframe>
+				</div>
 							
-							<div class="sourceRef">
-								Source: <a href="https://www.meteosuisse.admin.ch/product/input/climate-data/swissmean/10.18751-Climate-Timeseries-CHTM-swiss.txt">MeteoSuisse</a>
-							</div>
-						</div>
-					</div>
-					
-					<hr class="featurette-divider">
-					
-					
-					<div class="row featurette">
-						<div class="col-md-6 order-md-2">
-							<h2 class="featurette-heading">Fonte des glaciers</h2>
-							<p class="lead"> C’est une des conséquences les plus visibles en Suisse du réchauffement climatique. Les glaciers alpins disparaissent progressivement. Selon les données du Réseau des relevés glaciologiques suisse (Glamos), le glacier de Zmutt – dont dépend celui du Cervin – a ainsi perdu près d'1,2 km de longueur en un siècle, avec une accélération marquée dès les années 1940.
-							</p>
-						</div>
-						<div class="col-md-6 order-md-1">
-							<div class="iframe-loader">
-								<div id="slider" class="beer-slider" data-beer-label="2005">
-									<img src="./assets/2005_matterhorn.jpeg" alt="">
-									<div class="beer-reveal" data-beer-label="1960">
-										<img src="./assets/1960_matterhorn.jpeg" alt="">
-									</div>
-								</div>
-							</div>
-							<div class="sourceRef">
-								Source: <a href="https://climate.nasa.gov/interactives/global-ice-viewer/#/1/14">NASA</a>
-							</div>
-						</div>
-					</div>
-					<!-- /END THE FEATURETTES -->
+				<div class="sourceRef">
+					Source: <a href="https://www.meteosuisse.admin.ch/product/input/climate-data/swissmean/10.18751-Climate-Timeseries-CHTM-swiss.txt">MeteoSuisse</a>
+				</div>
+		      	<p class="about__reason__text">Selon l’Office fédéral de la Statistique, 2020 a été la deuxième année la plus chaude en Suisse – derrière 2018 – depuis le début des mesures en 1864. En Europe, c’est même l’année la plus chaude jamais enregistrée.</p>
+		    </div>
 
-				</div><!-- /.container -->
-			</div>
-
-
-			<footer class="">
-				<div class="container">
-					<div class="row justify-content-center">
-						<div class="col-1">
-							<p><a class="disabled-link" onclick="document.location='dereglement_monde.html'" id="left"><i class="fas fa-angle-left "></i></a></p> 
-						</div>
-						<div class="col-10 align">
-							<p>2. Le climat se dérègle en Suisse</p>
-						</div>
-						<div class="col-1">
-							<p><a onclick="document.location='faute.html'" id="right"><i class="fas fa-angle-right"></i></a></p> <!-- onclick="window.location.href = 'faute.html'"-->
+		    <div class="about__reason">
+			    <p class="about__text" style="margin: 8px 0 10px;">
+    			<span class="about__text--accent">Fonte des glaciers</span>
+  				</p>
+ 				<div class="iframe-loader">
+					<div id="slider" class="beer-slider" data-beer-label="2005">
+							<img src="./assets/2005_matterhorn.jpeg" alt="">
+						<div class="beer-reveal" data-beer-label="1960">
+							<img src="./assets/1960_matterhorn.jpeg" alt="">
 						</div>
 					</div>
 				</div>
-			</footer>
-		</main>
+				<div class="sourceRef">
+					Source: <a href="https://climate.nasa.gov/interactives/global-ice-viewer/#/1/14">NASA</a>
+				</div>
+		      	<p class="about__reason__text">C’est une des conséquences les plus visibles en Suisse du réchauffement climatique. Les glaciers alpins disparaissent progressivement. Selon les données du Réseau des relevés glaciologiques suisse (Glamos), le glacier de Zmutt – dont dépend celui du Cervin – a ainsi perdu près d'1,2 km de longueur en un siècle, avec une accélération marquée dès les années 1940.</p>
+		    </div>
+		 </div>
+										
+		<footer class="heidi-footer">
+			<p><a class="disabled-link" onclick="document.location='dereglement_monde.html'" id="left"><i class="fas fa-angle-left "></i></a></p> 
+			<p>2. Le climat se dérègle en Suisse</p>
+			<p><a onclick="document.location='faute.html'" id="right"><i class="fas fa-angle-right"></i></a></p> <!-- onclick="window.location.href = 'faute.html'"-->
+		</footer>
 		
 		<!-- Add Bootstrap and JQuery -->
 		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 		<!-- Slider for melting glaciers comparison -->
 		<script src="https://unpkg.com/beerslider/dist/BeerSlider.js"></script>

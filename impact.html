@@ -1,52 +1,34 @@
 <!doctype html>
-<html lang="en">
-	<head>
-		<!-- Required meta tags -->
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="description" content="An interactive map with information on climate change around the world">
-		<meta name="author" content="Francois Quellec">
-		<link rel="icon" href="./assets/favicon.ico">
-
-		<title>Dashboard Climat</title>
-
-		<!-- FontAwesome -->
-		<script src="https://kit.fontawesome.com/66b68f1fd7.js" crossorigin="anonymous"></script>
-
-		<!-- Preload woff2 fonts (browsers supporting preload support woff2) -->
-		<link rel="preload" href="https://heidi-17455.kxcdn.com/assets/roboto-v18-latin_latin-ext-regular-f9bc132980c62433dfd76631f5a602fd1bf318141d67ebb6b70b4d3cc92555b0.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-		<link rel="preload" href="https://heidi-17455.kxcdn.com/assets/roboto-v18-latin_latin-ext-700-1f03b3082883c94de09ea4c0b38092a45f2f7ca60c14889818a3e19057da34b8.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-		<link rel="preload" href="https://heidi-17455.kxcdn.com/assets/roboto-slab-v7-latin_latin-ext-300-bce959fb5c853a5923b15508722333f2188251babbdf6c280f8e3e23faf053fc.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-		<link rel="preload" href="https://heidi-17455.kxcdn.com/assets/roboto-slab-v7-latin_latin-ext-700-9c1369d1bb82f208798dec741ce7d920794cc4ce429493a96b88acf0810a0cfb.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-		<link rel="preload" href="https://heidi-17455.kxcdn.com/assets/EuclidFlex-Medium-subset-1adc11f962e72cdd362dc663024e7b3d57cbf1d614097dc6995aa010c7313d87.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-
-		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-		<!-- Heidi CSS -->
-		<link rel="stylesheet" media="all" href="./css/heidi.css">
-
-		<!-- Custom CSS  for the dashboard-->
-		<link rel="stylesheet" media="all" href="./css/carousel.css">
-
-		<!-- Transition bewteen pages -->
-		<link rel="stylesheet" href="./css/normalize.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-		<link rel="stylesheet" href="./css/pageTransitions.css">
-	</head>
+<html lang="fr">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="An interactive map with information on climate change around the world">
+    <meta name="author" content="Francois Quellec">
+    <link rel="icon" href="./assets/favicon.ico">
+    <title>Dashboard Climat - De nouvelles menaces</title>
+     <!-- FontAwesome -->
+    <script src="https://kit.fontawesome.com/66b68f1fd7.js" crossorigin="anonymous"></script>
+    <!-- Preload woff2 fonts (browsers supporting preload support woff2) -->
+    <link rel="preload" href="https://heidi-17455.kxcdn.com/assets/roboto-v18-latin_latin-ext-regular-f9bc132980c62433dfd76631f5a602fd1bf318141d67ebb6b70b4d3cc92555b0.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="https://heidi-17455.kxcdn.com/assets/roboto-v18-latin_latin-ext-700-1f03b3082883c94de09ea4c0b38092a45f2f7ca60c14889818a3e19057da34b8.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="https://heidi-17455.kxcdn.com/assets/roboto-slab-v7-latin_latin-ext-regular-c522ad036c6de7f50af3215dffd3c5b7ca323c6ed43c43baa736a7554ef6bbec.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="https://heidi-17455.kxcdn.com/assets/roboto-slab-v7-latin_latin-ext-700-9c1369d1bb82f208798dec741ce7d920794cc4ce429493a96b88acf0810a0cfb.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="https://heidi-17455.kxcdn.com/assets/EuclidFlex-Medium-subset-1adc11f962e72cdd362dc663024e7b3d57cbf1d614097dc6995aa010c7313d87.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <!-- Heidi CSS -->
+    <link rel="stylesheet" media="all" href="https://heidi-17455.kxcdn.com/assets/heidi-917a3f12238247e646fccf33b5e69fc980caf76ca74fca863a0cc9bf7d6920d1.css">
+    <!-- Custom CSS  for the dashboard-->
+	<link rel="stylesheet" media="all" href="./css/carousel.css">
+    <!-- Custom CSS  for the dashboard-->
+    <link rel="stylesheet" media="all" href="./css/dashboard.css">
+  </head>
 
 	<body>
 		<div class="main-nav" role="banner">
 			<header>
 				<div class="main-nav__bar">
 					<div class="toggle-menu main-nav__burger-button">
-						<div class="icon icon__burger">
-							<div id="menu-burger" class="menu-burger">
-								<span></span>
-								<span></span>
-								<span></span>
-							</div>
-						</div>
 					</div>
 					<div class="main-nav__side main-nav__side--desktop">  
 					</div>
@@ -57,124 +39,103 @@
 						</a>
 					</span>
 					<div class="main-nav__side main-nav__side--profil">
-						<a class="btn btn--small btn--red" href="https://www.heidi.news/invitations">Recommander Heidi.news</a>
 					</div>
 				</div>
 			</header>
 		</div>
 
-		<main role="main" id="main" class="m-scene">
-			<div id="main" class="main-scene">
-				<div class="container marketing scene_element scene_element--fadeinup">
-					
-					<div class="row heading">
-						<div class="col-12">
-							<h2 class="featurette-heading">De nouvelles menaces</h2>
-							<p class="lead">Le dérèglement climatique vient directement menacer l’humain et la biodiversité. r. Températures plus chaudes, phénomènes météorologiques extrêmes (ouragans, tornades, canicules) toujours plus fréquents, perte de biodiversité, détérioration de la qualité de l’air… Au-delà du risque de dégât matériel, la question de l’impact sanitaire de ces aléas se pose aussi… </p>
-						</div>
+		<div class="main-section">
+			<h4 class="heidi-title">
+				Le Climat en 2021
+			</h4>
+		    <div class="about__reason">
+			    <h4 class="about__reason__title">
+			    	De nouvelles menaces
+			    </h4>
+		      	<p class="about__reason__text">Le dérèglement climatique vient directement menacer l’humain et la biodiversité. r. Températures plus chaudes, phénomènes météorologiques extrêmes (ouragans, tornades, canicules) toujours plus fréquents, perte de biodiversité, détérioration de la qualité de l’air… Au-delà du risque de dégât matériel, la question de l’impact sanitaire de ces aléas se pose aussi…</p>
+		    </div>
+		    <div class="arrow-medium">
+		    	<img src="https://heidi-17455.kxcdn.com/assets/pictos/arrow-medium-353528957332536ba5363c6709f9d1186823381f8fe0d810875d0c75f1bdd8ce.svg">
+		    </div>
+		</div>
+
+		<div class="main-section main-section--large">
+		    <div class="about__reason">
+			    <p class="about__text" style="margin: 8px 0 10px;">
+    			<span class="about__text--accent">Plus de canicules en Europe</span>
+  				</p>
+  			</div>
+  		</div>
+  		<div class="main-section">
+  			<div class="about__reason" style="margin-top: 0px;">
+				<div id="slider-container"></div>
+					<div id="map-container">
+					<div id="map">
 					</div>
-				
-					<hr class="featurette-divider">
-					<!-- START THE FEATURETTES -->
-					<div class="row featurette">
-						<div class="col-md-6">
-							<h2 class="featurette-heading">Plus de canicules <span class="text-muted">en Europe</span></h2>
-							<p class="lead">Les températures moyennes augmentent en Suisse, en Europe et dans le monde. La décennie 2011-2020 se classe comme la plus chaude jamais observée et les six années écoulées depuis 2015 ont toutes atteint des records, selon l’Organisation météorologique mondiale. Le nombre de  jours aux températures extrêmes devrait également augmenter fortement. La Suisse pourrait subir 30 à 35 jours de canicule de plus d’ici à 2050.</p>
-						</div>
-						<div class="col-md-6">
-							<div id="slider-container"></div>
-							<div id="map-container">
-								<div id="map">
-								</div>
-								<div id="heatmap"></div>
-							</div>
-							<div class="sourceRef">
-							Source: <a href="https://cds.climate.copernicus.eu/cdsapp#!/dataset/sis-heat-and-cold-spells?tab=overview">Copernicus</a>
-							</div>
-							
-						</div>
-					</div>
-
-					<hr class="featurette-divider">
-
-					<div class="row featurette">
-						<div class="col-md-6 order-md-2">
-							<h2 class="featurette-heading">La biodiversité en danger <span class="text-muted">dans le monde</span></h2>
-							<p class="lead">L’urbanisation, la hausse des températures et la fréquence accrue des événements météo extrêmes accroissent la pression sur des écosystèmes souvent déjà menacés. Dans sa liste rouge, l’Union internationale pour la conservation de la nature dresse la liste des espèces menacées à travers le monde. Les écosystèmes suisses sont également concernés.</p>
-						</div>
-						<div class="col-md-6 order-md-1">
-							<!--<div id="DotMatrix"></div>-->
-							<div id="DonutMatrix"></div>
-							<div class="sourceRef">
-							Source: <a href="https://www.iucnredlist.org/resources/summary-statistics#Summary%20Tables">IUCN Red List 2021-1: Table 1a</a>
-							</div>
-						</div>
-					</div>
-
-					<hr class="featurette-divider">
-
-					<div class="row featurette">
-						<div class="col-md-6">
-							<h2 class="featurette-heading">La pollution de l'air</h2>
-							<p class="lead">Selon l’OMS, 91% des habitants de la planète respirent un air pollué. Cette pollution, notamment due aux particules fines, aux oxydes d’azote (NOx) et à l’ozone troposphérique est un fléau silencieux qui diminue l’espérance de vie. En Suisse, une étude a démontré en 2015 qu’elle était au moins responsable de 2200 décès prématurés par an.</p>
-						</div>
-						<div class="col-md-6">
-						
-								<iframe title="covid resume" src="https://embed.newsteller.io/3df06d692b94" width="100%" height="500px" frameborder="0"> </iframe>
-							
-							<div class="sourceRef">
-							Source: <a href="https://openaq.org/">OpenAQ</a>
-							</div>
-						</div>
-					</div>
-
-					<hr class="featurette-divider">
-
-					<div class="row featurette justify-content-center">
-						<div class="col-md-12">
-							<h2 class="featurette-heading">Le jour du dépassement <span class="text-muted">dans le Monde</span></h2>
-							
-						</div>
-						<div class="col-md-8 col-12">
-							<div class="iframe-loader">
-								<div id="CircularCalendar"></div>
-							</div>
-							<div class="sourceRef">
-							Source: <a href="https://www.footprintnetwork.org/licenses/public-data-package-free/">Global FootPrint Network</a>
-							</div>
-						</div>
-						<div class="col-md-12">
-							<p class="lead">Le jour du dépassement est une date symbolique, au départ imaginée par l’ONG américaine Global Footprint Network, qui marque le jour où le monde a théoriquement épuisé toutes les ressources naturelles renouvelables disponibles pour un an . En 2021, la Suisse aura consommé toute sa part de ressources le 11 mai. Si tous les pays se comportaient de la même façon, cela représenterait en un an l’équivalent de 2,8 planètes.Ce concept a toutefois été critiqué par certains spécialistes pour ses limites méthodologiques.</p>
-						</div>
-					</div>
-
-					<!-- /END THE FEATURETTES -->
-
-				</div><!-- /.container -->
-			</div>
-
-
-			<footer class="">
-				<div class="container">
-					<div class="row justify-content-center">
-						<div class="col-1">
-							<p><a onclick="document.location='faute.html'" id="left"><i class="fas fa-angle-left " disable></i></a></p> 
-						</div>
-						<div class="col-10 align">
-							<p>4. De nouvelles menaces</p>
-						</div>
-						<div class="col-1">
-							<p><a onclick="document.location='solutions.html'" id="right"><i class="fas fa-angle-right"></i></a></p> <!-- onclick="window.location.href = 'faute.html'"-->
-						</div>
-					</div>
+					<div id="heatmap"></div>
 				</div>
-			</footer>
-		</main>
+				<div class="sourceRef">
+					Source: <a href="https://cds.climate.copernicus.eu/cdsapp#!/dataset/sis-heat-and-cold-spells?tab=overview">Copernicus</a>
+				</div>
+			</div>
+		</div>
+		<div class="main-section main-section--large">
+		    <div class="about__reason" style="margin-top: 0px;">
+		      	<p class="about__reason__text">Les températures moyennes augmentent en Suisse, en Europe et dans le monde. La décennie 2011-2020 se classe comme la plus chaude jamais observée et les six années écoulées depuis 2015 ont toutes atteint des records, selon l’Organisation météorologique mondiale. Le nombre de  jours aux températures extrêmes devrait également augmenter fortement. La Suisse pourrait subir 30 à 35 jours de canicule de plus d’ici à 2050.</p>
+		    </div>
+		    
+		    <div class="about__reason">
+			    <p class="about__text" style="margin: 8px 0 10px;">
+    			<span class="about__text--accent">La biodiversité en danger dans le monde</span>
+  				</p>
+				<!--<div id="DotMatrix"></div>-->
+				<div id="DonutMatrix"></div>
+				<div class="sourceRef">
+				Source: <a href="https://www.iucnredlist.org/resources/summary-statistics#Summary%20Tables">IUCN Red List 2021-1: Table 1a</a>
+				</div>
+		      	<p class="about__reason__text">L’urbanisation, la hausse des températures et la fréquence accrue des événements météo extrêmes accroissent la pression sur des écosystèmes souvent déjà menacés. Dans sa liste rouge, l’Union internationale pour la conservation de la nature dresse la liste des espèces menacées à travers le monde. Les écosystèmes suisses sont également concernés.</p>
+		    </div>
+		    
+		    <div class="about__reason">
+			    <p class="about__text" style="margin: 8px 0 10px;">
+    			<span class="about__text--accent">La pollution de l'air</span>
+  				</p>
+				<iframe title="covid resume" src="https://embed.newsteller.io/3df06d692b94" width="100%" height="500px" frameborder="0"> </iframe>
+							
+				<div class="sourceRef">
+					Source: <a href="https://openaq.org/">OpenAQ</a>
+				</div>
+		      	
+		      	<p class="about__reason__text">Selon l’OMS, 91% des habitants de la planète respirent un air pollué. Cette pollution, notamment due aux particules fines, aux oxydes d’azote (NOx) et à l’ozone troposphérique est un fléau silencieux qui diminue l’espérance de vie. En Suisse, une étude a démontré en 2015 qu’elle était au moins responsable de 2200 décès prématurés par an.</p>
+		    </div>
+		    
+		    <div class="about__reason">
+			    <p class="about__text" style="margin: 8px 0 10px;">
+    			<span class="about__text--accent">Le jour du dépassement dans le Monde</span>
+  				</p>
+				<div class="iframe-loader">
+					<div id="CircularCalendar"></div>
+				</div>
+				<div class="sourceRef">
+					Source: <a href="https://www.footprintnetwork.org/licenses/public-data-package-free/">Global FootPrint Network</a>
+				</div>
+		      	<p class="about__reason__text">Le jour du dépassement est une date symbolique, au départ imaginée par l’ONG américaine Global Footprint Network, qui marque le jour où le monde a théoriquement épuisé toutes les ressources naturelles renouvelables disponibles pour un an . En 2021, la Suisse aura consommé toute sa part de ressources le 11 mai. Si tous les pays se comportaient de la même façon, cela représenterait en un an l’équivalent de 2,8 planètes.Ce concept a toutefois été critiqué par certains spécialistes pour ses limites méthodologiques.</p>
+		    </div>
+		</div>
+
+		<footer class="heidi-footer">
+			<p>
+				<a onclick="document.location='faute.html'" id="left"><i class="fas fa-angle-left " disable></i></a>
+			</p> 
+			<p>4. De nouvelles menaces</p>
+			<p>
+				<a onclick="document.location='solutions.html'" id="right"><i class="fas fa-angle-right"></i></a>
+			</p> <!-- onclick="window.location.href = 'faute.html'"-->
+		</footer>
 		
-		<!-- Add Bootstrap and JQuery -->
+		<!-- Add JQuery -->
 		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 		<!-- transitions scripts -->
 		<script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>

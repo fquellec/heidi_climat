@@ -21,6 +21,12 @@
   font-family: "Open Sans";
 }
 
+.sourceRef{
+    font-size: 12px;
+    font-weight: bold;
+    font-family: "Roboto", sans-serif;
+}
+
 .jumbotron {
   padding-top: var(--jumbotron-padding-y);
   padding-bottom: var(--jumbotron-padding-y);
@@ -108,13 +114,4 @@
   bottom: 30px;
   right: 30px;
   letter-spacing: 1px;
-}
-
-footer {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-}
-
-footer p {
-  margin-bottom: .25rem;
 }
