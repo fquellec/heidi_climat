@@ -117,7 +117,7 @@ var grad = {0: myColor(0),
 // Add Legend
 svg.append("g")
 	.attr("class", "legendLinear")
-	.attr("transform", "translate(20," + (260).toString() + ")")//config.height/2
+	.attr("transform", "translate(20," + (160).toString() + ")")//config.height/2
 	.style("font-size", "0.5rem");
 
 var colorLegend = d3.legendColor()
