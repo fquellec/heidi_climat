@@ -3,11 +3,11 @@ dflt_config = {
   width               : 600,
   height              : 300,
   padding             : 0,
-  colorScaleDomain    : [0, 2],
-  colorScaleRange     : ["#ececec", "#87d37c"],
+  colorScaleDomain    : ["Gravement insuffisant","Très insuffisant","Insuffisant","Compatible 2°C","Compatible 1.5°C (Accords de Paris)","Role modèle"],
+  colorScaleRange     : ["#525A5E", "#EC4C25","#EF9D23","#F5E363","#A1C14C","#568C45"],
   borderColor         : ["white", "grey"],
   tooltip_format      : "Please define format",
-  tooltip_width       : "200px",
+  tooltip_width       : "300px",
   legend_title        : "",
 };
 
@@ -60,23 +60,15 @@ function drawMap(id, column, config){
 	
 	// Load dataset and geojson
 	d3.queue()
-		.defer(d3.csv, 'assets/paris_agreement_ndc.csv', function (d) {
+		.defer(d3.csv, 'assets/climateActionTracker.csv', function (d) {
 			return {
-				iso_3: d['iso_3'],
-				iso_2: d['iso_2'],
-				name: d['Country_Name_fr'],  
-				values: +d['Share of 2012 GHG'],
-				engagement: d['Summary of the I/NDC'],
+				iso_3: d['iso_3'].toUpperCase(),
+				iso_2: d['iso_2'].toUpperCase(),
+				name: d['pays'],  
+				values: d['note'],
 			}
 		})
 		.defer(d3.json, 'assets/countries.json')
-		.defer(d3.csv, 'assets/countries_centroids.csv', function (d) {
-			return {
-				iso_2: d['country'],
-				lat: +d['latitude'],
-				lon: +d['longitude'],  
-			}
-		})
 		.awaitAll(initialize)
 
 	function initialize(error, data){
@@ -85,27 +77,29 @@ function drawMap(id, column, config){
 	  // Get data  
 	  const values  = data[0];
 	  const geojson = data[1];
-	  const centroids = data[2];
-		
-	  // Map centroids to country id 
-	  centroidsById = {};	
-	  centroids.forEach(function (d) {
-		centroidsById[d.iso_2] = {"lat": +d.lat, "lon": +d.lon};
-	  });
 
 	  // Map values to country id
 	  var valuesById = {};
 	  values.forEach(function (d) {
-		valuesById[d.iso_3] = {"name": d.name, "values": +d.values, "engagement": d.engagement};
+		valuesById[d.iso_3] = {"name": d.name, "values": d.values};
 	  });
+		
+	  // Define additional infos for tooltip // SPECIFIC TO THIS CHART
+	  var infos = {};
+	  infos["Gravement insuffisant"] = "Les engagements nationaux de ce pays se situent bien en dehors de la fourchette \"équitable\" et ne sont pas du tout compatibles avec un réchauffement inférieur à 1,5°C fixé par l'accord de Paris. Si tous les plans climats des gouvernements se situaient dans cette fourchette, le réchauffement dépasserait 4°C d'ici 2100.";
+	  infos["Très insuffisant"] = "Les engagements nationaux de ce type se situent en dehors de la fourchette \"équitable\" et ne sont pas du tout compatibles avec un réchauffement inférieur à 1,5°C fixé par l'accord de Paris. Si tous les plans climats des gouvernements se situaient dans cette fourchette, le réchauffement atteindrait entre 3°C et 4°C d'ici 2100.";
+	  infos["Insuffisant"] = "Les engagements nationaux de ce pays se situent dans la partie la moins stricte de la fourchette \"équitable\" et ne permettent pas de maintenir le réchauffement en dessous de 1,5 °C comme fixé par l'accord de Paris. Si tous les plans climats des gouvernements se situaient dans cette fourchette, le réchauffement atteindrait plus de 2°C et jusqu'à 3°C d'ici 2100.";
+	  infos["Compatible 2°C"] = "Les engagements nationaux de ce pays sont compatibles avec l'objectif de 2°C fixé à Copenhague en 2009 et se situent donc dans la fourchette \"équitable\", mais ils ne sont pas entièrement compatibles avec l'objectif de température à long terme de l'accord de Paris. Si tous les plans climats des gouvernements se situaient dans cette fourchette, le réchauffement pourrait être maintenu en dessous de 2°C, mais au dessus de 1,5 °C."
+	  infos["Compatible 1.5°C (Accords de Paris)"] = "Les engagements nationaux de ce pays se situent dans la fourchette \"équitable\" : ils sont compatibles avec la limite de 1,5°C de l'Accord de Paris."
+	  infos["Role modèle"] = "Le plan climat de ce pays est plus ambitieux que ce qui est considéré comme une contribution \"équitable\" : il est plus que conforme à la limite de 1,5°C de l'Accord de Paris."
 
 	  // Map projection to compute coordinates 
 	  const projection = d3.geoIdentity().reflectY(true).fitSize([width - padding*2, height - padding*2], geojson);
 	  const path = d3.geoPath().projection(projection);
-
+	  
 	  const color = d3.scaleOrdinal()
 		.domain(colorScaleDomain)
-		.range(colorScaleRange);//#FFCE03 ["#67809f", "#FFCE03", "#F00505"]
+		.range(colorScaleRange);
 
 	  // Draw the map
 	  const countryPaths = map
@@ -117,10 +111,10 @@ function drawMap(id, column, config){
 			.attr('class', 'country')
 			.attr("fill", function (d) {
 				if (valuesById[d.properties.ISO_A3]){
-					return color(2);  
+					return color(valuesById[d.properties.ISO_A3]['values']);  
 				}
 				else {
-					return color(0);
+					return '#F2F2F2';
 				}
 				     
 			})
@@ -128,78 +122,15 @@ function drawMap(id, column, config){
 			.attr("d", path)
 			.style("stroke", borderColor[0])
 			.style("stroke-width", "0.5px")
-			.style("stroke-opacity", "1");
-
-		// Add Legend
-		svg.append("g")
-			.attr("class", "legendLinear")
-			.style("font-size", "0.5rem")
-			.attr("transform", "translate(20,100)");
-
-		var colorLegend = d3.legendColor()
-			.labelFormat(d3.format(".0f"))
-			.shapeWidth(15)
-			//.shapePadding(0)
-			.shapeHeight(10)
-			.cells(3)
-			.title(legend_title)
-			.labelWrap(30)
-			.titleWidth(60)
-			.orient("vertical")
-			.scale(color)
-			.labelOffset(12);
-
-		svg.select(".legendLinear")
-			.call(colorLegend);
-		
-		const minValue = d3.min(values, function(d) { return +d.values; });
-	    const maxValue = d3.max(values, function(d) { return +d.values; });
-		
-		// Add a scale for bubble size
-		var size = d3.scaleLinear()
-			.domain([minValue, maxValue])
-			.range([ 1, 40]);
-		
-		// Draw bubbles 
-		var bubbles = map
-		  .selectAll(".bubble")
-		  .data(values);
-		
-		bubbles
-		  .enter()
-		  .append("circle")
-		  	.attr('class', 'bubble')
-		    .attr("cx", function(d){ 
-				c = centroidsById[d.iso_2]
-				if(c){
-					return projection([c.lon, c.lat])[0] 
-				} else {
-					//console.log("No centroid for ", d);
-					return -100;
-				}
-			})
-		    .attr("cy", function(d){ 
-				c = centroidsById[d.iso_2]
-				if(c){
-					return projection([c.lon, c.lat])[1] 
-				} else {
-					//console.log("No centroid for ", d);
-					return -100;
-				} 
-			})
-		    .attr("r", function(d){ return size(+d.values) })
-		    .style("fill", function(d){ return  '#000000' })
-		    .attr("stroke", function(d){ return  "white" })
-		    .attr("stroke-width", 1)
-		    .attr("fill-opacity", .4)
-			.on("mouseover", function(d){
-				if (valuesById[d.iso_3] && valuesById[d.iso_3]['values'] != 0){
+			.style("stroke-opacity", "1")
+	  		.on("mouseover", function(d){
+				if (valuesById[d.properties.ISO_A3]){
 					tooltip.style("opacity", 1)
-					d3.select(this).style('stroke', "black");//.parentNode.appendChild(this)
+					d3.select(this.parentNode.appendChild(this)).style('stroke', borderColor[1]);
 				}
 			})
 			.on("mousemove", function(d){
-				if (!valuesById[d.iso_3]){return}
+				if (!valuesById[d.properties.ISO_A3]){return}
 				const tooltipWidth = tooltip.node().getBoundingClientRect().width 
 				const tooltipHeight =  tooltip.node().getBoundingClientRect().height 
 				const mapWidth = svg.node().getBoundingClientRect().width 
@@ -220,9 +151,10 @@ function drawMap(id, column, config){
 				topPos = topPos + 15
 				}
 
-				var textToDisplay = "<b>" + valuesById[d.iso_3]['name'] + "</b><br><br>" 
-								  + "Pourcentage des émissions mondiale du pays : <b>" + valuesById[d.iso_3]['values'] + "%</b><br><br>"
-								  + "Engagements: " + valuesById[d.iso_3]['engagement'];
+				var textToDisplay = "<b>" + valuesById[d.properties.ISO_A3]['name'] + "</b><br>" 
+								  + "Le plan climat du pays est considéré comme <b>" + valuesById[d.properties.ISO_A3]['values'] + "</b>.<br>"
+								  + "<i>" + infos[valuesById[d.properties.ISO_A3]['values']] + "</i>"
+								  ;
 
 				tooltip
 					.html(textToDisplay)
@@ -230,47 +162,33 @@ function drawMap(id, column, config){
 					.style("top", topPos + "px")
 				})
 				.on("mouseleave", function(d){
-					if (valuesById[d.iso_3] && valuesById[d.iso_3]['values'] != 0){
+					if (valuesById[d.properties.ISO_A3]){
 						tooltip.style("opacity", 0);
-						d3.select(this).style('stroke', 'white');
+						d3.select(this).style('stroke', borderColor[0]);
 					}
-				})
-		
-		
-		// add text in circles
-		bubbles
-			.enter()
-			.append("text")
-			.attr("class", "cases_text")
-			.attr("text-anchor","middle")
-			.attr("alignment-baseline", "middle")
-			.attr("x", function(d){ 
-				c = centroidsById[d.iso_2]
-				if(c){
-					return projection([c.lon, c.lat])[0] 
-				} else {
-					console.log("No centroid for ", d);
-					return -100;
-				} 		
-			})
-			.attr("y", function(d){ 
-				c = centroidsById[d.iso_2]
-				if(c){
-					return projection([c.lon, c.lat])[1] 
-				} else {
-					console.log("No centroid for ", d);
-					return -100;
-				} 
-			})// + 4
-			.attr("fill", "white")
-			.attr("font-size", function(d){
-				let val = size(+d['values']);
-				return val*0.5;
-			})
-			.attr("font-weight", "600")
-			.text(function(d){ return d['values'] + "%"})
-			.style("pointer-events", "none"); //Click through
+				});
 
+		// Add Legend
+		svg.append("g")
+			.attr("class", "legendLinear")
+			.style("font-size", "0.5rem")
+			.attr("transform", "translate(20,100)");
+
+		var colorLegend = d3.legendColor()
+			.labelFormat(d3.format(".0f"))
+			.shapeWidth(15)
+			//.shapePadding(0)
+			.shapeHeight(10)
+			//.cells(3)
+			.title(legend_title)
+			.labelWrap(40)
+			.titleWidth(60)
+			.orient("vertical")
+			.scale(color)
+			.labelOffset(12);
+
+		svg.select(".legendLinear")
+			.call(colorLegend);
 	}
 }
 
