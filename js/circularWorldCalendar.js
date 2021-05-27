@@ -116,13 +116,15 @@ function CircularWorldCalendar(config){
 		const geojson = data[1];
 		d3.timeFormatDefaultLocale(data[2]);
 		formatTime = d3.timeFormat("%d %B %Y");
+		parseTime = d3.timeParse("%Y-%m-%d %H:%M:%S");
 		
 		// Map values to country id and date
 		var valuesByIso = {};
 		var valuesByDate = {};
 
 		values.forEach((d) => {
-			const startDate = new Date(d.date);
+			
+			const startDate = parseTime(d.date.slice(0,-4));
 			const endDate = new Date(startDate.getTime());
 			endDate.setDate(startDate.getDate() + 1);
 
@@ -197,7 +199,6 @@ function CircularWorldCalendar(config){
 							.style('fill', arcsHighlightColor)
 							//.style('stroke', arcsHighlightColor)
 							.style("stroke-width", "0.5px");
-						
 						var textToDisplay = "<b>" + valuesByIso[d.properties.ISO_A3]['name'] + "</b><br>" 
 								  + formatTime(valuesByIso[d.properties.ISO_A3]['date']) + "<br>"
 								  + "<b>Nombre de planètes nécéssaires: </b>" + Math.round(valuesByIso[d.properties.ISO_A3]['value'] * 100) / 100;
