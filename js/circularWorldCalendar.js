@@ -11,8 +11,8 @@ const dflt = {
 
 function CircularWorldCalendar(config){
 	const width = 800,
-		height = 800,
-		arcPosition = 200;
+		height = 500,
+		arcPosition = 180;
 	
 	// Set defaults or config parameters
 	if (isNaN(config)){
@@ -34,8 +34,8 @@ function CircularWorldCalendar(config){
 	// Create centered circle (world)
 	var circle = svg.append('circle')
 		.attr('cx', width/2 )
-		.attr('cy', width/2 )
-		.attr('r', width/4 )
+		.attr('cy', height/2 )
+		.attr('r', width/5 )
 		.style('fill', worldColor);
 	
 	// Draw days arcs
@@ -69,7 +69,7 @@ function CircularWorldCalendar(config){
 	svg.append('text')
 		.classed('middle', true)
 		.attr('text-anchor', 'middle')
-		.attr('transform', 'translate(' + width / 2+ ',' + height / 3 + ')')
+		.attr('transform', 'translate(' + width / 2+ ',' + 150 + ')')
 		.attr('dy', '0.33em')
 		.style('font-size', '1.6rem')
 		.style('fill', '#FFFFFF')
@@ -151,8 +151,11 @@ function CircularWorldCalendar(config){
 			
 		});
 		
+		// Pythagore to find biggest square in circle
+		//var width_map = Math.pow(Math.pow(2*width/5, 2)/2, 0.5)
+		
 		// Map projection to compute coordinates on map
-		const projection = d3.geoIdentity().reflectY(true).fitSize([width/2, height/2], geojson)
+		const projection = d3.geoIdentity().reflectY(true).fitSize([320, 270], geojson)
 		const path = d3.geoPath().projection(projection);
 
 		// Define color scale
@@ -185,7 +188,7 @@ function CircularWorldCalendar(config){
 				.style("stroke", borderColor[0])
 				.style("stroke-width", "0.5px")
 				.style("stroke-opacity", "1")
-				.attr("transform", "translate(" + width / 4 + "," + height / 4 + ")")
+				.attr("transform", "translate(" + 240 + "," + height/4 + ")")
 				.on("mouseover", function(d){
 				
 					if (valuesByIso[d.properties.ISO_A3] && valuesByIso[d.properties.ISO_A3]['date']){
@@ -202,6 +205,7 @@ function CircularWorldCalendar(config){
 						const svg_width = svg.node().getBoundingClientRect().width;
 						const svg_height = svg.node().getBoundingClientRect().height; 
 						const tooltipWidth = tooltip.node().getBoundingClientRect().width;
+						const tooltipHeight = tooltip.node().getBoundingClientRect().height;
 						const coordinates = polarToCartesian(svg_width/4 + 50, valuesByIso[d.properties.ISO_A3]['angleR'])
 						
 						
@@ -211,6 +215,12 @@ function CircularWorldCalendar(config){
 							left = 0;
 						} else {
 							left = svg_width - tooltipWidth - 2
+						}
+						
+						if (top < 0){
+							top = 0;
+						} else if(top + tooltipHeight> svg_height){
+							top = svg_height - tooltipHeight;
 						}
 
 						tooltip
