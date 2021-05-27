@@ -18,8 +18,8 @@
     <link rel="preload" href="https://heidi-17455.kxcdn.com/assets/EuclidFlex-Medium-subset-1adc11f962e72cdd362dc663024e7b3d57cbf1d614097dc6995aa010c7313d87.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     <!-- Heidi CSS -->
     <link rel="stylesheet" media="all" href="https://heidi-17455.kxcdn.com/assets/heidi-917a3f12238247e646fccf33b5e69fc980caf76ca74fca863a0cc9bf7d6920d1.css">
-    <!-- Bootstrap CSS 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous"> -->
+    <!-- Slider for melting glaciers comparison -->
+	<link rel="stylesheet" href="https://unpkg.com/beerslider/dist/BeerSlider.css">
     <!-- Custom CSS  for the dashboard-->
     <link rel="stylesheet" media="all" href="./css/dashboard.css">
   </head>
@@ -50,7 +50,7 @@
 			</h4>
 		    <div class="about__reason">
 			    <h4 class="about__reason__title">
-			    	Le climat se dérègle dans le monde
+			    	Le climat se dérègle
 			    </h4>
 		      	<p class="about__reason__text">Aux origines de la crise climatique en cours, on retrouve un dérèglement du climat déclenché par les activités humaines, et notamment les émissions de gaz à effet de serre (GES). Ces derniers s’accumulent dans l’atmosphère et favorisent la hausse des températures. Et déclenchent de véritables réactions en chaîne.</p>
 		    </div>
@@ -96,29 +96,50 @@
 					<iframe title="covid resume" src="https://embed.newsteller.io/eb6b88ae4cb2" width="100%" height="450px" frameborder="0"> </iframe>
 				</div>
 				<div class="sourceRef">
-					<div>Source: <a href="https://marine.copernicus.eu/access-data/ocean-monitoring-indicators/time-series-mean-sea-level-trends-over-global-ocean">Copernicus</a></div>
-					<div>Icône: <a href="https://www.freepik.com" title="Freepik">Freepik</a> pour <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+					<div>Source: <a href="https://marine.copernicus.eu/access-data/ocean-monitoring-indicators/time-series-mean-sea-level-trends-over-global-ocean">Copernicus</a> — Icône: <a href="https://www.freepik.com" title="Freepik">Freepik</a> pour <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
 				</div>
 		      	<p class="about__reason__text">L’augmentation des températures entraîne une élévation du niveau marin par deux mécanismes: la dilatation de l’eau de mer, qui occupe d’autant plus de place qu’elle est chaude, mais également la fonte des pôles et des glaciers à travers le monde. Selon le rapport du Giec sur les océans et la cryosphère de 2019, le niveau marin pourrait monter de près d’un mètre d’ici 2100, mettant en danger de nombreux écosystèmes et près d’un milliard d’humains.</p>
+		    </div>
+			
+			<div class="about__reason">
+			    <p class="about__text" style="margin: 8px 0 10px;">
+    			<span class="about__text--accent">Fonte des glaciers</span>
+  				</p>
+ 				<div class="iframe-loader">
+					<div id="slider" class="beer-slider" data-beer-label="2005">
+							<img src="./assets/2005_matterhorn.jpeg" alt="">
+						<div class="beer-reveal" data-beer-label="1960">
+							<img src="./assets/1960_matterhorn.jpeg" alt="">
+						</div>
+					</div>
+				</div>
+				<div class="sourceRef">
+					Source: <a href="https://climate.nasa.gov/interactives/global-ice-viewer/#/1/14">NASA</a>
+				</div>
+		      	<p class="about__reason__text">C’est une des conséquences les plus visibles en Suisse du réchauffement climatique. Les glaciers alpins disparaissent progressivement. Selon les données du Réseau des relevés glaciologiques suisse (Glamos), le glacier de Zmutt – dont dépend celui du Cervin – a ainsi perdu près d'1,2 km de longueur en un siècle, avec une accélération marquée dès les années 1940.</p>
 		    </div>
 		</div>
 
 		<footer class="heidi-footer">
+			<!--
 			<p>
 				<a class="disabled-link" href="#" id="left"><i class="fas fa-angle-left " disable></i></a>
-			</p> 		
-			<p>1. Le climat se dérègle dans le monde</p>
+			</p> 
+			-->
+			<p>1. Le climat se dérègle</p>
 			<p>
-				<a onclick="document.location='dereglement_suisse.html'" id="right"><i class="fas fa-angle-right"></i></a>
+				<a onclick="document.location='faute.html'" id="right"><i class="fas fa-angle-right"></i></a>
 			</p> <!-- onclick="window.location.href = 'faute.html'"-->
 		</footer>		
 		<!-- Add JQuery -->
 		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-		<!-- transitions scripts -->
-		<script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
-		<script src="./js/jquery.smoothState.min.js"></script>
-		<script src="./js/transition.js"></script>
+		<!-- Slider for melting glaciers comparison -->
+		<script src="https://unpkg.com/beerslider/dist/BeerSlider.js"></script>
+		<script>
+			new BeerSlider(document.getElementById('slider'));
+		</script>
+		
 		<!-- main script -->
 		<script src="./js/main.js"></script>
 	</body>
