@@ -86,12 +86,12 @@ function drawMap(id, column, config){
 		
 	  // Define additional infos for tooltip // SPECIFIC TO THIS CHART
 	  var infos = {};
-	  infos["Gravement insuffisant"] = "Les engagements nationaux de ce pays se situent bien en dehors de la fourchette \"équitable\" et ne sont pas du tout compatibles avec un réchauffement inférieur à 1,5°C fixé par l'accord de Paris. Si tous les plans climats des gouvernements se situaient dans cette fourchette, le réchauffement dépasserait 4°C d'ici 2100.";
-	  infos["Très insuffisant"] = "Les engagements nationaux de ce type se situent en dehors de la fourchette \"équitable\" et ne sont pas du tout compatibles avec un réchauffement inférieur à 1,5°C fixé par l'accord de Paris. Si tous les plans climats des gouvernements se situaient dans cette fourchette, le réchauffement atteindrait entre 3°C et 4°C d'ici 2100.";
-	  infos["Insuffisant"] = "Les engagements nationaux de ce pays se situent dans la partie la moins stricte de la fourchette \"équitable\" et ne permettent pas de maintenir le réchauffement en dessous de 1,5 °C comme fixé par l'accord de Paris. Si tous les plans climats des gouvernements se situaient dans cette fourchette, le réchauffement atteindrait plus de 2°C et jusqu'à 3°C d'ici 2100.";
-	  infos["Compatible 2°C"] = "Les engagements nationaux de ce pays sont compatibles avec l'objectif de 2°C fixé à Copenhague en 2009 et se situent donc dans la fourchette \"équitable\", mais ils ne sont pas entièrement compatibles avec l'objectif de température à long terme de l'accord de Paris. Si tous les plans climats des gouvernements se situaient dans cette fourchette, le réchauffement pourrait être maintenu en dessous de 2°C, mais au dessus de 1,5 °C."
-	  infos["Compatible 1.5°C (Accords de Paris)"] = "Les engagements nationaux de ce pays se situent dans la fourchette \"équitable\" : ils sont compatibles avec la limite de 1,5°C de l'Accord de Paris."
-	  infos["Role modèle"] = "Le plan climat de ce pays est plus ambitieux que ce qui est considéré comme une contribution \"équitable\" : il est plus que conforme à la limite de 1,5°C de l'Accord de Paris."
+	  infos["Gravement insuffisant"] = "Si tous les engagements nationaux se situaient dans cette fourchette, le réchauffement dépasserait <b>4°C</b> d'ici 2100.";
+	  infos["Très insuffisant"] = "Si tous les engagements nationaux se situaient dans cette fourchette, le réchauffement atteindrait entre <b>3°C</b> et <b>4°C</b> d'ici 2100.";
+	  infos["Insuffisant"] = "Si tous les engagements nationaux se situaient dans cette fourchette, le réchauffement atteindrait plus de <b>2°C</b> et jusqu'à <b>3°C</b> d'ici 2100.";
+	  infos["Compatible 2°C"] = "Si tous les engagements nationaux se situaient dans cette fourchette, le réchauffement pourrait être maintenu en dessous de <b>2°C</b>, mais au dessus de <b>1,5°C</b>."
+	  infos["Compatible 1.5°C (Accords de Paris)"] = "Les engagements nationaux de ce pays se situent dans la fourchette \"équitable\" : ils sont compatibles avec la limite de <b>1,5°C</b> de l'Accord de Paris."
+	  infos["Role modèle"] = "Le plan climat de ce pays est plus ambitieux que ce qui est considéré comme une contribution \"équitable\" : il est plus que conforme à la limite de <b>1,5°C</b> de l'Accord de Paris."
 
 	  // Map projection to compute coordinates 
 	  const projection = d3.geoIdentity().reflectY(true).fitSize([width - padding*2, height - padding*2], geojson);
