@@ -122,3 +122,7 @@
   opacity: 0.5;
   text-decoration: none;
 }
+
+.subnav__link.highlight {
+	color: #D6121E;
+}
