@@ -114,7 +114,7 @@ function drawMap(id, column, config){
 					return color(valuesById[d.properties.ISO_A3]['values']);  
 				}
 				else {
-					return '#F2F2F2';
+					return '#F0F0F0';
 				}
 				     
 			})
