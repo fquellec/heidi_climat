@@ -36,12 +36,20 @@
     <link rel="stylesheet" media="all" href="./css/dashboard.css">
   </head>
 
-	<body>
-		<div class="main-nav" role="banner">
+  <body>
+	  <div class="main-nav" role="banner">
 			<header>
 				<div class="main-nav__bar">
 					<div class="toggle-menu main-nav__burger-button">
+						<div class="icon icon__burger">
+						  <div id="menu-burger" class="menu-burger">
+							<span></span>
+							<span></span>
+							<span></span>
+						  </div>
+						</div>
 					</div>
+					
 					<div class="main-nav__side main-nav__side--desktop">  
 					</div>
 
@@ -53,18 +61,49 @@
 					<div class="main-nav__side main-nav__side--profil">
 					</div>
 				</div>
-				<div class="subnav">
-					<div class="subnav__links">
-						<a class="subnav__link" href="index.html">SOMMAIRE</a>
-						<a class="subnav__link highlight" href="dereglement.html">1. Le climat se dérègle</a>
-						<a class="subnav__link" href="faute.html">2. C’est notre faute</a>
-						<a class="subnav__link" href="impact.html">3. De nouvelles menaces</a>
-						<a class="subnav__link" href="solutions.html">4. Les actions à mettre en place</a>
-					</div>
-  				</div>
 			</header>
+			
+			<div class="subnav">
+				<div class="subnav__links">
+					<a class="subnav__link" href="index.html">SOMMAIRE</a>
+					<a class="subnav__link highlight" href="dereglement.html">1. Le climat se dérègle</a>
+					<a class="subnav__link" href="faute.html">2. C’est notre faute</a>
+					<a class="subnav__link" href="impact.html">3. De nouvelles menaces</a>
+					<a class="subnav__link" href="solutions.html">4. Les actions à mettre en place</a>
+				</div>
+			</div>
 		</div>
-
+	
+		<div class="main-nav__menu">
+			<div class="toggle-menu main-nav__burger-button">
+				<div class="icon icon__burger">
+				  <div id="menu-burger" class="menu-burger">
+					<span></span>
+					<span></span>
+					<span></span>
+				  </div>
+				</div>
+			</div>
+			<nav class="main-nav__nav">
+				<div class="main-nav__section">
+					<a class="main-nav__link" href="index.html">SOMMAIRE</a>
+				</div>
+				<div class="main-nav__section">
+					<a class="main-nav__link main-nav__link--arrow highlight" href="dereglement.html">1. Le climat se dérègle</a>
+				</div>
+				<div class="main-nav__section">
+					<a class="main-nav__link main-nav__link--arrow" href="faute.html">2. C’est notre faute</a>
+				</div>
+				<div class="main-nav__section">
+					<a class="main-nav__link main-nav__link--arrow" href="impact.html">3. De nouvelles menaces</a>
+				</div>
+				<div class="main-nav__section">
+					<a class="main-nav__link main-nav__link--arrow" href="solutions.html">4. Les actions à mettre en place</a>
+				</div>
+			</nav>
+  		</div>
+		
+	
 		<div class="main-section">
 			
 		    <div class="about__reason">
@@ -180,5 +219,10 @@
 		
 		<!-- Twitter embedded tweet -->
 		<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+	  
+	  	<!-- Add heidi main script --> 
+	  	<script src="https://heidi-17455.kxcdn.com/assets/application-5844501ba36a089aaa5f43576ce837cb5b3738c863eccc9d47927e5cbe7254f8.js"></script>
+	  
+	  
 	</body>
 </html>

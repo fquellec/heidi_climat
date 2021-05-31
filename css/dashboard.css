@@ -126,3 +126,7 @@
 .subnav__link.highlight {
 	color: #D6121E;
 }
+
+a.main-nav__link.main-nav__link--arrow.highlight {
+	color: #D6121E;
+}
