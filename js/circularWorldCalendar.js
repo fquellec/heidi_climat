@@ -223,6 +223,10 @@ function CircularWorldCalendar(config){
 						} else if(top + tooltipHeight> svg_height){
 							top = svg_height - tooltipHeight;
 						}
+						
+						// Force tooltip position on top right corner for now
+						top = 0
+						left = 0
 
 						tooltip
 							.html(textToDisplay)

@@ -4,10 +4,22 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="An interactive map with information on climate change around the world">
+	<title>Le climat en data - De nouvelles menaces</title> 
+    <meta name="description" content="La planète se réchauffe. On le sait depuis plus de 40 ans. Mais le problème est complexe, à l’interface de plusieurs sciences. Quelles sont ses causes, ses dangers, et les solutions à mettre en place de façon urgente? Le point en quatre pages interactives.">
     <meta name="author" content="Francois Quellec">
     <link rel="icon" href="./assets/favicon.ico">
-    <title>Le climat en data - De nouvelles menaces</title>
+	    
+	<meta property="og:title" content="Le climat en data - De nouvelles menaces">
+	<meta property="og:description" content="La planète se réchauffe. On le sait depuis plus de 40 ans. Mais le problème est complexe, à l’interface de plusieurs sciences. Quelles sont ses causes, ses dangers, et les solutions à mettre en place de façon urgente? Le point en quatre pages interactives.">
+	<meta property="og:image" content="https://raw.githubusercontent.com/fquellec/heidi_climat/main/assets/meta.png">
+	<meta property="og:type" content="article">
+
+	<meta name="twitter:title" content="Le climat en data - De nouvelles menaces">
+	<meta name="twitter:description" content="La planète se réchauffe. On le sait depuis plus de 40 ans. Mais le problème est complexe, à l’interface de plusieurs sciences. Quelles sont ses causes, ses dangers, et les solutions à mettre en place de façon urgente? Le point en quatre pages interactives.">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@heidi_news">
+	<meta name="twitter:image" content="https://raw.githubusercontent.com/fquellec/heidi_climat/main/assets/meta.png">
+	  
      <!-- FontAwesome -->
     <script src="https://kit.fontawesome.com/66b68f1fd7.js" crossorigin="anonymous"></script>
     <!-- Preload woff2 fonts (browsers supporting preload support woff2) -->
@@ -55,11 +67,6 @@
 		</div>
 
 		<div class="main-section">
-			<!--
-			<h4 class="heidi-title">
-				Le Climat en 2021
-			</h4>
-			-->
 		    <div class="about__reason">
 			    <h4 class="about__reason__title">
 			    	3. De nouvelles menaces
@@ -158,7 +165,6 @@
 		
 		<!-- Add JQuery -->
 		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 		
 		<!-- main script -->
 		<script src="./js/main.js"></script>
@@ -170,10 +176,10 @@
 		<script src="https://d3js.org/d3-geo.v2.min.js"></script>
 		<script src="https://d3js.org/d3-color.v2.min.js"></script> 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.js" integrity="sha512-5mCB0Kvv97yTzqo0174qxPjMisck/WlK51+mw/RV7UfYbtHI8LuLR82BzZuxHUKSfbh75u9cZHgUcqrZDaBJuA==" crossorigin="anonymous"></script>
-		
 		<script src="./lib/simpleHeat/simpleheat.js"></script>
 		<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
 		
+		<!-- D3 custom scripts --> 
 		<script src="./js/circularWorldCalendar.js"></script>
 		<script src="./js/map_heatwaves.js"></script>
 		<script src="./js/DonutMatrix.js"></script>	
